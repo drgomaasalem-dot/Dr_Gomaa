@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قصص ودروس وعبر | العلم والإيمان والحياة</title>
+    <meta name="description"
+        content="قسم قصص ودروس وعبر في منصة العلم والإيمان والحياة - قصص من التاريخ، قصص واقعية، قصص الأنبياء والصالحين، العبرة المستفادة">
+    <meta name="keywords"
+        content="قصص ودروس وعبر, قصص من التاريخ, قصص واقعية, قصص الأنبياء, قصص الصالحين, العبرة المستفادة">
+    <link rel="canonical" href="https://www.elm-eman-hayah.com/stories.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.elm-eman-hayah.com/stories.html">
+    <meta property="og:site_name" content="العلم والإيمان والحياة">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:title" content="قصص ودروس وعبر | العلم والإيمان والحياة">
+    <meta property="og:description"
+        content="قسم قصص ودروس وعبر في منصة العلم والإيمان والحياة - قصص من التاريخ، قصص واقعية، قصص الأنبياء والصالحين، العبرة المستفادة.">
+    <meta property="og:image" content="https://www.elm-eman-hayah.com/assets/og-cover.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="قصص ودروس وعبر | العلم والإيمان والحياة">
+    <meta name="twitter:description" content="قسم قصص ودروس وعبر في منصة العلم والإيمان والحياة.">
+    <meta name="twitter:image" content="https://www.elm-eman-hayah.com/assets/og-cover.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "قصص ودروس وعبر",
+        "description": "قسم قصص ودروس وعبر في منصة العلم والإيمان والحياة - قصص من التاريخ، قصص واقعية، قصص الأنبياء والصالحين، العبرة المستفادة.",
+        "url": "https://www.elm-eman-hayah.com/stories.html",
+        "isPartOf": {
+            "@id": "https://www.elm-eman-hayah.com/#website"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "قصص ودروس وعبر"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* تخصيص صفحة قصص ودروس وعبر */
+        .stories-hero {
+            padding-block: 60px 80px;
+            background: linear-gradient(160deg, var(--navy-900), var(--navy-800));
+            color: var(--gold-100);
+        }
+
+        .stories-hero .section-head h2 {
+            color: var(--white);
+        }
+
+        .stories-hero .section-head p {
+            color: var(--gold-200);
+            opacity: .8;
+        }
+
+        .stories-hero .eyebrow {
+            background: rgba(212, 175, 55, .15);
+            border-color: var(--gold-500);
+            color: var(--gold-500);
+        }
+
+        .stories-hero .eyebrow::before {
+            background: var(--gold-500);
+        }
+
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        @media (max-width: 900px) {
+            .stories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .stories-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 28px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: var(--shadow-sm);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+
+        .stories-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--line-gold);
+        }
+
+        .stories-card .icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: linear-gradient(150deg, var(--gold-100), var(--gold-200));
+            border: 1px solid var(--line-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stories-card .icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--gold-700);
+        }
+
+        .stories-card .type-badge {
+            display: inline-block;
+            font-family: var(--font-utility);
+            font-size: .7rem;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 999px;
+            margin-bottom: 4px;
+            align-self: flex-start;
+        }
+
+        .stories-card .type-badge.history {
+            color: #cc6600;
+            background: #fff4ee;
+        }
+
+        .stories-card .type-badge.real {
+            color: #0066cc;
+            background: #eeefff;
+        }
+
+        .stories-card .type-badge.prophets {
+            color: #008844;
+            background: #eeffee;
+        }
+
+        .stories-card .type-badge.lessons {
+            color: #cc0066;
+            background: #ffeeee;
+        }
+
+        .stories-card h3 {
+            font-size: 1.12rem;
+        }
+
+        .stories-card p {
+            color: var(--navy-500);
+            font-size: .88rem;
+            flex: 1;
+        }
+
+        .stories-card .meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 14px;
+            border-top: 1px dashed var(--line);
+            font-family: var(--font-utility);
+            font-size: .8rem;
+        }
+
+        .stories-card .meta .info {
+            color: var(--navy-300);
+        }
+
+        .stories-card .meta .link {
+            color: var(--gold-700);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .stories-card .meta .link svg {
+            width: 13px;
+            height: 13px;
+            transition: transform .2s;
+        }
+
+        .stories-card:hover .meta .link svg {
+            transform: translateX(-3px);
+        }
+
+        .stories-intro {
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .stories-intro p {
+            color: var(--navy-500);
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-dates">
+                <span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <rect x="3" y="5" width="18" height="16" rx="2" />
+                        <path d="M16 3v4M8 3v4M3 10h18" />
+                    </svg>
+                    ٩ ربيع الآخر ١٤٤٨هـ
+                </span>
+                <span>الموافق ٣٠ أغسطس ٢٠٢٦م</span>
+            </div>
+            <div class="topbar-links">
+                <a href="about.html">من نحن؟</a>
+                <a href="#newsletter">النشرة البريدية</a>
+                <a href="contact.html">تواصل معنا</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-main">
+            <a href="index.html" class="brand">
+                <span class="brand-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                        <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                        <path d="M12 22v-4" />
+                    </svg>
+                </span>
+                <span class="brand-text">
+                    <strong>العلم والإيمان والحياة</strong>
+                    <span>موسوعة الفكر والمعرفة الشاملة</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="التنقل الرئيسي">
+                <ul class="nav-list">
+                    <!-- يتم توليدها بواسطة JavaScript -->
+                </ul>
+            </nav>
+
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-outline">تواصل معنا</a>
+                <button class="burger" id="burgerBtn" aria-label="القائمة" aria-expanded="false"><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE DRAWER ===== -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-label="القائمة الجانبية">
+        <div class="drawer-head">
+            <span class="brand-text"><strong style="color:#fff">العلم والإيمان والحياة</strong></span>
+            <button class="drawer-close" id="drawerClose" aria-label="إغلاق">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f0e2bd" stroke-width="2">
+                    <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+            </button>
+        </div>
+        <div class="drawer-accordion">
+            <!-- يتم توليدها بواسطة JavaScript -->
+        </div>
+        <div class="drawer-foot">
+            <a href="contact.html" class="btn btn-gold">تواصل معنا</a>
+            <a href="contact.html" class="btn btn-outline" style="color:#f0e2bd;border-color:rgba(212,175,55,.5)">اتصل
+                بنا</a>
+        </div>
+    </aside>
+
+    <!-- ===== NEWS TICKER ===== -->
+    <div class="ticker-bar">
+        <div class="container">
+            <div class="ticker-inner">
+                <div class="ticker-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="label-full">جديد المنصة</span>
+                </div>
+                <div class="ticker-viewport">
+                    <div class="ticker-track" id="tickerTrack">
+                        <span><time>منذ ساعتين</time> قصة جديدة: درس من حياة عمر بن الخطاب</span>
+                        <span><time>اليوم</time> قصة: كيف تغلب موسى عليه السلام على السحرة؟</span>
+                        <span><time>أمس</time> قصة واقعية: رحلة توبة غيرت حياة شاب</span>
+                        <span><time>منذ ٣ أيام</time> قصة: العبرة من غزوة بدر الكبرى</span>
+                        <span><time>منذ ساعتين</time> قصة جديدة: درس من حياة عمر بن الخطاب</span>
+                        <span><time>اليوم</time> قصة: كيف تغلب موسى عليه السلام على السحرة؟</span>
+                        <span><time>أمس</time> قصة واقعية: رحلة توبة غيرت حياة شاب</span>
+                        <span><time>منذ ٣ أيام</time> قصة: العبرة من غزوة بدر الكبرى</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ===== STORIES HERO ===== -->
+        <section class="stories-hero">
+            <div class="container">
+                <div class="section-head">
+                    <div class="divider-motif"></div>
+                    <span class="eyebrow">حكايات ترويها العبر</span>
+                    <h2>قصص ودروس وعبر: رحلة في الزمن تستلهم منها العظة</h2>
+                    <p>رحلات في التاريخ، قصص الأنبياء والصالحين، وحكايات واقعية، تحمل بين طياتها دروساً وعبراً تصلح
+                        القلوب وتبني العقول.</p>
+                </div>
+                <div class="stories-intro">
+                    <p>قسم قصص ودروس وعبر يضم أربعة محاور شاملة، يروي كل منها حكايات من الماضي والحاضر، لتكون مصدر إلهام
+                        وعبرة في رحلة الحياة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 1. قصص من التاريخ ===== -->
+        <section class="section section-alt" id="history">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الأول</span>
+                    <h2>قصص من التاريخ</h2>
+                    <p>حكايات من التاريخ الإسلامي والعالمي، ودروسها المستفادة في بناء الحضارة والنهوض بالأمة.</p>
+                </div>
+                <div class="stories-grid">
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M4 19V5a2 2 0 012-2h11l3 3v13a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+                                <path d="M8 8h8M8 12h8M8 16h5" />
+                            </svg></span>
+                        <span class="type-badge history">📜 تاريخ</span>
+                        <h3>غزوات النبي ﷺ</h3>
+                        <p>قصص غزوات النبي محمد ﷺ ودروسها العسكرية والتربوية والاجتماعية.</p>
+                        <div class="meta"><span class="info">١٨ قصة</span><a class="link"
+                                href="https://blogger.com/غزوات-النبي" target="_blank">اقرأ <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <span class="type-badge history">📜 تاريخ</span>
+                        <h3>قصص الخلفاء الراشدين</h3>
+                        <p>حكايات من حياة الخلفاء الراشدين، ودروسهم في العدل والحكمة والإدارة.</p>
+                        <div class="meta"><span class="info">٢٠ قصة</span><a class="link"
+                                href="https://blogger.com/الخلفاء-الراشدين" target="_blank">اقرأ <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg></span>
+                        <span class="type-badge history">📜 تاريخ</span>
+                        <h3>معارك وحضارات</h3>
+                        <p>أحداث تاريخية كبرى غيرت وجه العالم، ودروسها في القيادة والتضحية والصبر.</p>
+                        <div class="meta"><span class="info">١٦ قصة</span><a class="link"
+                                href="https://blogger.com/معارك-وحضارات" target="_blank">اقرأ <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 2. قصص واقعية ===== -->
+        <section class="section" id="real">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الثاني</span>
+                    <h2>قصص واقعية</h2>
+                    <p>حكايات من واقع الحياة، تجارب إنسانية مؤثرة تحمل دروساً في الصبر والأمل والتغيير.</p>
+                </div>
+                <div class="stories-grid">
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <span class="type-badge real">📖 واقعي</span>
+                        <h3>قصص التوبة</h3>
+                        <p>حكايات واقعية لأشخاص غيرت حياتهم بعد التوبة، ودروس في رحمة الله وقبول التائبين.</p>
+                        <div class="meta"><span class="info">١٥ قصة</span><a class="link"
+                                href="https://blogger.com/قصص-التوبة" target="_blank">اقرأ <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                            </svg></span>
+                        <span class="type-badge real">📖 واقعي</span>
+                        <h3>قصص النجاح</h3>
+                        <p>حكايات نجاح لأشخاص تغلبوا على الصعاب، ودروس في الإرادة والمثابرة والثقة بالله.</p>
+                        <div class="meta"><span class="info">١٨ قصة</span><a class="link"
+                                href="https://blogger.com/قصص-النجاح" target="_blank">اقرأ <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M3 12h4l3 8 4-16 3 8h4" />
+                            </svg></span>
+                        <span class="type-badge real">📖 واقعي</span>
+                        <h3>قصص الأمل</h3>
+                        <p>حكايات تُذكّرنا بالأمل في رحمة الله، وتجارب أشخاص تغلبوا على اليأس والقنوط.</p>
+                        <div class="meta"><span class="info">١٤ قصة</span><a class="link"
+                                href="https://blogger.com/قصص-الأمل" target="_blank">اقرأ <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 3. قصص الأنبياء والصالحين ===== -->
+        <section class="section section-alt" id="prophets">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الثالث</span>
+                    <h2>قصص الأنبياء والصالحين</h2>
+                    <p>حكايات من حياة الأنبياء والمرسلين والصالحين، ودروسها في الصبر والثبات والتوكل على الله.</p>
+                </div>
+                <div class="stories-grid">
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <span class="type-badge prophets">🌟 أنبياء</span>
+                        <h3>قصص الأنبياء</h3>
+                        <p>قصص الأنبياء كما وردت في القرآن، مع الدروس والعبر المستفادة.</p>
+                        <div class="meta"><span class="info">٢٥ قصة</span><a class="link"
+                                href="https://blogger.com/قصص-الأنبياء" target="_blank">اقرأ <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg></span>
+                        <span class="type-badge prophets">🌟 صالحون</span>
+                        <h3>قصص الصحابة</h3>
+                        <p>سير الصحابة رضوان الله عليهم، ومواقفهم البطولية وصدق إيمانهم.</p>
+                        <div class="meta"><span class="info">٣٠ قصة</span><a class="link"
+                                href="https://blogger.com/قصص-الصحابة" target="_blank">اقرأ <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <span class="type-badge prophets">🌟 صالحون</span>
+                        <h3>قصص الصالحين</h3>
+                        <p>سير الصالحين من الأمة، ودروسهم في الورع والتقوى والإخلاص.</p>
+                        <div class="meta"><span class="info">٢٢ قصة</span><a class="link"
+                                href="https://blogger.com/قصص-الصالحين" target="_blank">اقرأ <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 4. العبرة المستفادة ===== -->
+        <section class="section" id="lessons">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الرابع</span>
+                    <h2>العبرة المستفادة</h2>
+                    <p>وقفات تأملية مع القصص، واستخلاص الدروس والعبر التي تغير مسار الحياة.</p>
+                </div>
+                <div class="stories-grid">
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M4 19V5a2 2 0 012-2h11l3 3v13a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+                                <path d="M8 8h8M8 12h8M8 16h5" />
+                            </svg></span>
+                        <span class="type-badge lessons">💡 عبرة</span>
+                        <h3>الصبر في المحن</h3>
+                        <p>دروس في الصبر والاحتساب من قصص الأنبياء والصالحين في مواجهة الابتلاءات.</p>
+                        <div class="meta"><span class="info">١٦ مادة</span><a class="link"
+                                href="https://blogger.com/الصبر-في-المحن" target="_blank">اقرأ <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <span class="type-badge lessons">💡 عبرة</span>
+                        <h3>التوكل على الله</h3>
+                        <p>دروس في التوكل على الله من قصص الأنبياء، وكيف نجمع بين الأخذ بالأسباب والثقة بالله.</p>
+                        <div class="meta"><span class="info">١٨ مادة</span><a class="link"
+                                href="https://blogger.com/التوكل-على-الله" target="_blank">اقرأ <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="stories-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M3 12h4l3 8 4-16 3 8h4" />
+                            </svg></span>
+                        <span class="type-badge lessons">💡 عبرة</span>
+                        <h3>العبرة والموعظة</h3>
+                        <p>وقفات تأملية مع القصص، لاستخلاص العبر التي تغير مسار حياتنا نحو الأفضل.</p>
+                        <div class="meta"><span class="info">٢٠ مادة</span><a class="link"
+                                href="https://blogger.com/العبرة-والموعظة" target="_blank">اقرأ <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section"
+            style="background:linear-gradient(160deg,var(--navy-900),var(--navy-800));color:var(--gold-100)">
+            <div class="container" style="text-align:center;max-width:720px;margin:0 auto">
+                <div class="divider-motif"
+                    style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='20' viewBox='0 0 64 20'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1.4'%3E%3Cpath d='M2 10h20'/%3E%3Cpath d='M42 10h20'/%3E%3Cpath d='M32 2l8 8-8 8-8-8z'/%3E%3C/g%3E%3C/svg%3E&quot;)">
+                </div>
+                <span class="eyebrow"
+                    style="background:rgba(212,175,55,.15);border-color:var(--gold-500);color:var(--gold-500)">تواصل
+                    معنا</span>
+                <h2 style="color:var(--white)">هل لديك قصة أو عبرة تود مشاركتها؟</h2>
+                <p style="color:var(--gold-200);opacity:.8;margin-bottom:28px">تواصل مع فضيلة الشيخ مباشرة عبر نموذج
+                    "تواصل معنا" وسيتم الرد عليك عبر واتساب.</p>
+                <a href="contact.html" class="btn btn-gold" style="font-size:1.05rem;padding:16px 40px">تواصل معنا</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand">
+                        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <span class="brand-text"><strong>العلم والإيمان والحياة</strong></span>
+                    </a>
+                    <p>موسوعة رقمية شاملة تجمع بين أصالة العلم الشرعي وواقعية الحياة، لبناء إنسان متزن الإيمان والعقل
+                        والسلوك.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="يوتيوب"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path
+                                    d="M23 12s0-4-1-5.5c-1-1.5-2-1.5-2.5-1.6C16 4.5 12 4.5 12 4.5s-4 0-7.5.4C4 5 3 5 2 6.5 1 8 1 12 1 12s0 4 1 5.5c1 1.5 2.3 1.5 3 1.6C7.5 19.5 12 19.5 12 19.5s4 0 7.5-.4c.7-.1 2-.1 3-1.6 1-1.5 1-5.5 1-5.5zM9.8 15.5v-7l6 3.5z" />
+                            </svg></a>
+                        <a href="#" aria-label="إكس"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M4 4l16 16M20 4L4 20" />
+                            </svg></a>
+                        <a href="#" aria-label="تيليجرام"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M22 2L2 10l6 2 2 7 3-4 5 4z" />
+                            </svg></a>
+                        <a href="#" aria-label="انستجرام"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>أقسام المعرفة</h5>
+                    <ul>
+                        <li><a href="science.html">العلم</a></li>
+                        <li><a href="faith.html">الإيمان</a></li>
+                        <li><a href="life.html">الحياة</a></li>
+                        <li><a href="library.html">مكتبة المعرفة</a></li>
+                        <li><a href="pulpit.html">منبر الجمعة</a></li>
+                        <li><a href="qa.html">سؤال وجواب</a></li>
+                        <li><a href="stories.html" style="opacity:1;color:var(--gold-500)">قصص ودروس وعبر</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>روابط سريعة</h5>
+                    <ul>
+                        <li><a href="soul.html">حديث الروح</a></li>
+                        <li><a href="videos.html">مرئيات المنصة</a></li>
+                        <li><a href="audios.html">صوتيات</a></li>
+                        <li><a href="issues.html">قضايا معاصرة</a></li>
+                        <li><a href="games.html">مسابقات وألغاز</a></li>
+                        <li><a href="entertainment.html">ترفيه هادف</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-news" id="newsletter">
+                    <h5>النشرة البريدية والتواصل</h5>
+                    <p>اشترك لتصلك أحدث المقالات والفتاوى أسبوعياً، أو تواصل معنا مباشرة.</p>
+                    <form id="newsletterForm">
+                        <label for="nlName" class="sr-only">الاسم</label>
+                        <input id="nlName" name="nlName" type="text" placeholder="اسمك" required>
+                        <label for="nlEmail" class="sr-only">البريد الإلكتروني</label>
+                        <input id="nlEmail" name="nlEmail" type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.5.5-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.3z" />
+                            </svg>
+                            إرسال عبر واتساب
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© ٢٠٢٦ منصة العلم والإيمان والحياة. جميع الحقوق محفوظة.</span>
+                <span><a href="#">سياسة الخصوصية</a> · <a href="#">الشروط والأحكام</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JS ===== -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

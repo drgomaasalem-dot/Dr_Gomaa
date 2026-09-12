@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإيمان | العلم والإيمان والحياة</title>
+    <meta name="description"
+        content="قسم الإيمان في منصة العلم والإيمان والحياة - القرآن الكريم، الحديث الشريف، العقيدة، الأخلاق، تزكية النفس، فقه الحياة">
+    <meta name="keywords" content="الإيمان, القرآن الكريم, الحديث الشريف, العقيدة, الأخلاق, تزكية النفس, فقه الحياة">
+    <link rel="canonical" href="https://www.elm-eman-hayah.com/faith.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.elm-eman-hayah.com/faith.html">
+    <meta property="og:site_name" content="العلم والإيمان والحياة">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:title" content="الإيمان | العلم والإيمان والحياة">
+    <meta property="og:description"
+        content="قسم الإيمان في منصة العلم والإيمان والحياة - القرآن الكريم، الحديث الشريف، العقيدة، الأخلاق، تزكية النفس، فقه الحياة.">
+    <meta property="og:image" content="https://www.elm-eman-hayah.com/assets/og-cover.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="الإيمان | العلم والإيمان والحياة">
+    <meta name="twitter:description" content="قسم الإيمان في منصة العلم والإيمان والحياة.">
+    <meta name="twitter:image" content="https://www.elm-eman-hayah.com/assets/og-cover.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "الإيمان",
+        "description": "قسم الإيمان في منصة العلم والإيمان والحياة - القرآن الكريم، الحديث الشريف، العقيدة، الأخلاق، تزكية النفس، فقه الحياة.",
+        "url": "https://www.elm-eman-hayah.com/faith.html",
+        "isPartOf": {
+            "@id": "https://www.elm-eman-hayah.com/#website"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "الإيمان الإسلامي"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* تخصيص صفحة الإيمان */
+        .faith-hero {
+            padding-block: 60px 80px;
+            background: linear-gradient(160deg, var(--navy-900), var(--navy-800));
+            color: var(--gold-100);
+        }
+
+        .faith-hero .section-head h2 {
+            color: var(--white);
+        }
+
+        .faith-hero .section-head p {
+            color: var(--gold-200);
+            opacity: .8;
+        }
+
+        .faith-hero .eyebrow {
+            background: rgba(212, 175, 55, .15);
+            border-color: var(--gold-500);
+            color: var(--gold-500);
+        }
+
+        .faith-hero .eyebrow::before {
+            background: var(--gold-500);
+        }
+
+        .faith-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        @media (max-width: 900px) {
+            .faith-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .faith-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .faith-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 28px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: var(--shadow-sm);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+
+        .faith-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--line-gold);
+        }
+
+        .faith-card .icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: linear-gradient(150deg, var(--gold-100), var(--gold-200));
+            border: 1px solid var(--line-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .faith-card .icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--gold-700);
+        }
+
+        .faith-card .type-badge {
+            display: inline-block;
+            font-family: var(--font-utility);
+            font-size: .7rem;
+            font-weight: 700;
+            padding: 3px 12px;
+            border-radius: 999px;
+            margin-bottom: 4px;
+            align-self: flex-start;
+        }
+
+        .faith-card .type-badge.quran {
+            color: #0066cc;
+            background: #eeefff;
+        }
+
+        .faith-card .type-badge.hadith {
+            color: #008844;
+            background: #eeffee;
+        }
+
+        .faith-card .type-badge.aqeedah {
+            color: #cc6600;
+            background: #fff4ee;
+        }
+
+        .faith-card .type-badge.ethics {
+            color: #cc0066;
+            background: #ffeeee;
+        }
+
+        .faith-card .type-badge.tazkiyah {
+            color: #9900cc;
+            background: #ffeeff;
+        }
+
+        .faith-card .type-badge.fiqh {
+            color: #cc4400;
+            background: #ffffee;
+        }
+
+        .faith-card h3 {
+            font-size: 1.12rem;
+        }
+
+        .faith-card p {
+            color: var(--navy-500);
+            font-size: .88rem;
+            flex: 1;
+        }
+
+        .faith-card .meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 14px;
+            border-top: 1px dashed var(--line);
+            font-family: var(--font-utility);
+            font-size: .8rem;
+        }
+
+        .faith-card .meta .info {
+            color: var(--navy-300);
+        }
+
+        .faith-card .meta .link {
+            color: var(--gold-700);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .faith-card .meta .link svg {
+            width: 13px;
+            height: 13px;
+            transition: transform .2s;
+        }
+
+        .faith-card:hover .meta .link svg {
+            transform: translateX(-3px);
+        }
+
+        .faith-intro {
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .faith-intro p {
+            color: var(--navy-500);
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-dates">
+                <span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <rect x="3" y="5" width="18" height="16" rx="2" />
+                        <path d="M16 3v4M8 3v4M3 10h18" />
+                    </svg>
+                    ٩ ربيع الآخر ١٤٤٨هـ
+                </span>
+                <span>الموافق ٣٠ أغسطس ٢٠٢٦م</span>
+            </div>
+            <div class="topbar-links">
+                <a href="about.html">من نحن؟</a>
+                <a href="#newsletter">النشرة البريدية</a>
+                <a href="contact.html">تواصل معنا</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-main">
+            <a href="index.html" class="brand">
+                <span class="brand-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                        <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                        <path d="M12 22v-4" />
+                    </svg>
+                </span>
+                <span class="brand-text">
+                    <strong>العلم والإيمان والحياة</strong>
+                    <span>موسوعة الفكر والمعرفة الشاملة</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="التنقل الرئيسي">
+                <ul class="nav-list">
+                    <!-- يتم توليدها بواسطة JavaScript -->
+                </ul>
+            </nav>
+
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-outline">تواصل معنا</a>
+                <button class="burger" id="burgerBtn" aria-label="القائمة" aria-expanded="false"><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE DRAWER ===== -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-label="القائمة الجانبية">
+        <div class="drawer-head">
+            <span class="brand-text"><strong style="color:#fff">العلم والإيمان والحياة</strong></span>
+            <button class="drawer-close" id="drawerClose" aria-label="إغلاق">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f0e2bd" stroke-width="2">
+                    <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+            </button>
+        </div>
+        <div class="drawer-accordion">
+            <!-- يتم توليدها بواسطة JavaScript -->
+        </div>
+        <div class="drawer-foot">
+            <a href="contact.html" class="btn btn-gold">تواصل معنا</a>
+            <a href="contact.html" class="btn btn-outline" style="color:#f0e2bd;border-color:rgba(212,175,55,.5)">اتصل
+                بنا</a>
+        </div>
+    </aside>
+
+    <!-- ===== NEWS TICKER ===== -->
+    <div class="ticker-bar">
+        <div class="container">
+            <div class="ticker-inner">
+                <div class="ticker-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="label-full">جديد المنصة</span>
+                </div>
+                <div class="ticker-viewport">
+                    <div class="ticker-track" id="tickerTrack">
+                        <span><time>منذ ساعتين</time> فتوى جديدة: حكم الجمع بين الصلاتين في السفر الطويل</span>
+                        <span><time>اليوم</time> مقال: كيف تحافظ على خشوعك في الصلاة وسط الانشغال؟</span>
+                        <span><time>أمس</time> حلقة مرئية جديدة: أسس التربية الإيمانية للأبناء</span>
+                        <span><time>منذ ٣ أيام</time> فتوى: أحكام الزكاة على الأسهم والمحافظ الاستثمارية</span>
+                        <span><time>منذ ساعتين</time> فتوى جديدة: حكم الجمع بين الصلاتين في السفر الطويل</span>
+                        <span><time>اليوم</time> مقال: كيف تحافظ على خشوعك في الصلاة وسط الانشغال؟</span>
+                        <span><time>أمس</time> حلقة مرئية جديدة: أسس التربية الإيمانية للأبناء</span>
+                        <span><time>منذ ٣ أيام</time> فتوى: أحكام الزكاة على الأسهم والمحافظ الاستثمارية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ===== FAITH HERO ===== -->
+        <section class="faith-hero">
+            <div class="container">
+                <div class="section-head">
+                    <div class="divider-motif"></div>
+                    <span class="eyebrow">أساس الدين</span>
+                    <h2>الإيمان: القلب النابض للحياة</h2>
+                    <p>رحلة متكاملة في العقيدة والعبادة والسلوك، من كتاب الله وسنة نبيه ﷺ، لفهم الإيمان الصحيح وتطبيقه
+                        في واقعنا المعاصر.</p>
+                </div>
+                <div class="faith-intro">
+                    <p>يضم قسم الإيمان ستة محاور رئيسية تغطي أركان الإيمان من العقيدة إلى العبادة إلى السلوك، مع عناية
+                        خاصة بتزكية النفس وبناء الشخصية المسلمة المتزنة.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 1. القرآن الكريم ===== -->
+        <section class="section section-alt" id="quran">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الأول</span>
+                    <h2>القرآن الكريم</h2>
+                    <p>تدبر الآيات وفهم مقاصدها، مع أدوات ميسّرة للحفظ والمراجعة المستمرة.</p>
+                </div>
+                <div class="faith-grid">
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M4 19V5a2 2 0 012-2h11l3 3v13a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+                                <path d="M8 8h8M8 12h8M8 16h5" />
+                            </svg></span>
+                        <span class="type-badge quran">📖 قرآن</span>
+                        <h3>تدبر القرآن</h3>
+                        <p>فهم معاني الآيات وتطبيقها في الحياة اليومية من خلال سلسلة "تدبرات قرآنية".</p>
+                        <div class="meta"><span class="info">٢٤ درساً</span><a class="link"
+                                href="https://blogger.com/تدبر-القرآن" target="_blank">استكشف <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <span class="type-badge quran">📖 قرآن</span>
+                        <h3>الحفظ والمراجعة</h3>
+                        <p>خطط عملية للحفظ مع برامج مراجعة تتناسب مع مستويات الحفظ المختلفة.</p>
+                        <div class="meta"><span class="info">١٦ مادة</span><a class="link"
+                                href="https://blogger.com/حفظ-القرآن" target="_blank">استكشف <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M3 12h4l3 8 4-16 3 8h4" />
+                            </svg></span>
+                        <span class="type-badge quran">📖 قرآن</span>
+                        <h3>التفسير الميسر</h3>
+                        <p>تفسير آيات القرآن بأسلوب واضح يراعي لغة العصر واحتياجاته.</p>
+                        <div class="meta"><span class="info">٣٢ حلقة</span><a class="link"
+                                href="https://blogger.com/تفسير-القرآن" target="_blank">استكشف <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 2. الحديث الشريف ===== -->
+        <section class="section" id="hadith">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الثاني</span>
+                    <h2>الحديث الشريف</h2>
+                    <p>شرح وتخريج الأحاديث النبوية، وفهم دلالاتها، وتطبيقها في واقعنا المعاصر.</p>
+                </div>
+                <div class="faith-grid">
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" />
+                            </svg></span>
+                        <span class="type-badge hadith">📜 حديث</span>
+                        <h3>الأربعون النووية</h3>
+                        <p>شرح وافٍ لأربعين حديثاً جامعة في الدين، مع فوائد تربوية وفقهية.</p>
+                        <div class="meta"><span class="info">٤٠ حديثاً</span><a class="link"
+                                href="https://blogger.com/الأربعون-النووية" target="_blank">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M4 19V5a2 2 0 012-2h11l3 3v13a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+                                <path d="M8 8h8M8 12h8M8 16h5" />
+                            </svg></span>
+                        <span class="type-badge hadith">📜 حديث</span>
+                        <h3>صحيح البخاري</h3>
+                        <p>قراءة وشرح مختصر لصحيح البخاري مع التركيز على الأحاديث المتعلقة بالحياة اليومية.</p>
+                        <div class="meta"><span class="info">١٢٠ درساً</span><a class="link"
+                                href="https://blogger.com/صحيح-البخاري" target="_blank">استكشف <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <span class="type-badge hadith">📜 حديث</span>
+                        <h3>رياض الصالحين</h3>
+                        <p>دراسة أبواب رياض الصالحين في الزهد والرقائق والآداب والأخلاق.</p>
+                        <div class="meta"><span class="info">٩٠ مادة</span><a class="link"
+                                href="https://blogger.com/رياض-الصالحين" target="_blank">استكشف <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 3. العقيدة ===== -->
+        <section class="section section-alt" id="aqeedah">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الثالث</span>
+                    <h2>العقيدة</h2>
+                    <p>بناء التصور الإيماني السليم، وتثبيت اليقين بالله وملائكته وكتبه ورسله واليوم الآخر والقدر.</p>
+                </div>
+                <div class="faith-grid">
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <span class="type-badge aqeedah">☪️ عقيدة</span>
+                        <h3>أركان الإيمان</h3>
+                        <p>شرح مبسط لأركان الإيمان الستة مع الأدلة من الكتاب والسنة.</p>
+                        <div class="meta"><span class="info">٢٨ مادة</span><a class="link"
+                                href="https://blogger.com/أركان-الإيمان" target="_blank">استكشف <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M3 12h4l3 8 4-16 3 8h4" />
+                            </svg></span>
+                        <span class="type-badge aqeedah">☪️ عقيدة</span>
+                        <h3>القضاء والقدر</h3>
+                        <p>فهم حقيقة الإيمان بالقدر، وموازنة بين السعي والتوكل في ضوء النصوص الشرعية.</p>
+                        <div class="meta"><span class="info">١٦ مادة</span><a class="link"
+                                href="https://blogger.com/القضاء-والقدر" target="_blank">استكشف <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg></span>
+                        <span class="type-badge aqeedah">☪️ عقيدة</span>
+                        <h3>الرد على الشبهات</h3>
+                        <p>معالجة شبهات الماديين والملحدين بلغة علمية رصينة مقنعة.</p>
+                        <div class="meta"><span class="info">٢٢ محاضرة</span><a class="link"
+                                href="https://blogger.com/الرد-على-الشبهات" target="_blank">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 4. الأخلاق ===== -->
+        <section class="section" id="ethics">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الرابع</span>
+                    <h2>الأخلاق</h2>
+                    <p>حسن المعاملة وسمو السلوك، وغرس القيم والفضائل في النفس والمجتمع.</p>
+                </div>
+                <div class="faith-grid">
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path
+                                    d="M12 21s-7-4.35-9.5-8.5C.5 8.5 3 5 6.5 5c2 0 3.5 1 5.5 3 2-2 3.5-3 5.5-3C21 5 23.5 8.5 21.5 12.5 19 16.65 12 21 12 21z" />
+                            </svg></span>
+                        <span class="type-badge ethics">🤝 أخلاق</span>
+                        <h3>الصدق والأمانة</h3>
+                        <p>فضيلة الصدق في القول والفعل، وأثر الأمانة في بناء الثقة المجتمعية.</p>
+                        <div class="meta"><span class="info">١٤ مادة</span><a class="link"
+                                href="https://blogger.com/الصدق-والأمانة" target="_blank">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                            </svg></span>
+                        <span class="type-badge ethics">🤝 أخلاق</span>
+                        <h3>التواضع والأناة</h3>
+                        <p>أخلاق التواضع وعدم الكبر، وأثرها في محبة الناس ورضا الله.</p>
+                        <div class="meta"><span class="info">١٠ مواد</span><a class="link"
+                                href="https://blogger.com/التواضع-والأناة" target="_blank">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <span class="type-badge ethics">🤝 أخلاق</span>
+                        <h3>العفو والتسامح</h3>
+                        <p>خلق العفو والمسامحة، ودورهما في نشر السلام والوئام بين الناس.</p>
+                        <div class="meta"><span class="info">١٢ مادة</span><a class="link"
+                                href="https://blogger.com/العفو-والتسامح" target="_blank">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 5. تزكية النفس ===== -->
+        <section class="section section-alt" id="tazkiyah">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الخامس</span>
+                    <h2>تزكية النفس</h2>
+                    <p>تطهير القلب وتقوية الصلة بالله، عبر برامج تربوية عملية تعينك على مجاهدة النفس.</p>
+                </div>
+                <div class="faith-grid">
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <span class="type-badge tazkiyah">🌱 تزكية</span>
+                        <h3>مجاهدة النفس</h3>
+                        <p>خطوات عملية في التغلب على شهوات النفس وعلاج أمراض القلب كالحسد والكبر.</p>
+                        <div class="meta"><span class="info">٢٨ مادة</span><a class="link"
+                                href="https://blogger.com/مجاهدة-النفس" target="_blank">استكشف <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg></span>
+                        <span class="type-badge tazkiyah">🌱 تزكية</span>
+                        <h3>التوبة والاستغفار</h3>
+                        <p>دروس في التوبة النصوح، وكيفية المحافظة على الاستغفار كمنهج حياة.</p>
+                        <div class="meta"><span class="info">١٦ مادة</span><a class="link"
+                                href="https://blogger.com/التوبة-والاستغفار" target="_blank">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" />
+                            </svg></span>
+                        <span class="type-badge tazkiyah">🌱 تزكية</span>
+                        <h3>الخشية والخوف من الله</h3>
+                        <p>فهم معنى الخشية الإيمانية، وأثرها في ضبط السلوك والارتقاء بالروح.</p>
+                        <div class="meta"><span class="info">٢٠ مادة</span><a class="link"
+                                href="https://blogger.com/الخشية-والخوف" target="_blank">استكشف <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 6. فقه الحياة ===== -->
+        <section class="section" id="fiqh-life">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور السادس</span>
+                    <h2>فقه الحياة</h2>
+                    <p>أحكام العبادات والمعاملات بأسلوب واضح يراعي واقع الحياة المعاصرة، مع التيسير وعدم التكلف.</p>
+                </div>
+                <div class="faith-grid">
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z" />
+                            </svg></span>
+                        <span class="type-badge fiqh">📋 فقه</span>
+                        <h3>فقه الطهارة والصلاة</h3>
+                        <p>أحكام الوضوء والغسل والتيمم، وأحكام الصلاة وأركانها وسننها ومبطلاتها.</p>
+                        <div class="meta"><span class="info">٣٤ مادة</span><a class="link"
+                                href="https://blogger.com/فقه-الطهارة-والصلاة" target="_blank">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M4 19V5a2 2 0 012-2h11l3 3v13a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+                                <path d="M8 8h8M8 12h8M8 16h5" />
+                            </svg></span>
+                        <span class="type-badge fiqh">📋 فقه</span>
+                        <h3>فقه الزكاة والصيام</h3>
+                        <p>أحكام الزكاة في الأموال المعاصرة، وأحكام الصيام وآدابه وقضائه.</p>
+                        <div class="meta"><span class="info">٢٨ مادة</span><a class="link"
+                                href="https://blogger.com/فقه-الزكاة-والصيام" target="_blank">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="faith-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <span class="type-badge fiqh">📋 فقه</span>
+                        <h3>فقه المعاملات المالية</h3>
+                        <p>أحكام البيع والشراء والقروض والرهن والكفالة، مع تطبيقات معاصرة.</p>
+                        <div class="meta"><span class="info">٣٦ مادة</span><a class="link"
+                                href="https://blogger.com/فقه-المعاملات" target="_blank">استكشف <svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section"
+            style="background:linear-gradient(160deg,var(--navy-900),var(--navy-800));color:var(--gold-100)">
+            <div class="container" style="text-align:center;max-width:720px;margin:0 auto">
+                <div class="divider-motif"
+                    style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='20' viewBox='0 0 64 20'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1.4'%3E%3Cpath d='M2 10h20'/%3E%3Cpath d='M42 10h20'/%3E%3Cpath d='M32 2l8 8-8 8-8-8z'/%3E%3C/g%3E%3C/svg%3E&quot;)">
+                </div>
+                <span class="eyebrow"
+                    style="background:rgba(212,175,55,.15);border-color:var(--gold-500);color:var(--gold-500)">تواصل
+                    معنا</span>
+                <h2 style="color:var(--white)">هل لديك سؤال في الإيمان أو العقيدة أو الفقه؟</h2>
+                <p style="color:var(--gold-200);opacity:.8;margin-bottom:28px">تواصل مع فضيلة الشيخ مباشرة عبر نموذج
+                    "تواصل معنا" وسيتم الرد عليك عبر واتساب.</p>
+                <a href="contact.html" class="btn btn-gold" style="font-size:1.05rem;padding:16px 40px">تواصل معنا</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand">
+                        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <span class="brand-text"><strong>العلم والإيمان والحياة</strong></span>
+                    </a>
+                    <p>موسوعة رقمية شاملة تجمع بين أصالة العلم الشرعي وواقعية الحياة، لبناء إنسان متزن الإيمان والعقل
+                        والسلوك.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="يوتيوب"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path
+                                    d="M23 12s0-4-1-5.5c-1-1.5-2-1.5-2.5-1.6C16 4.5 12 4.5 12 4.5s-4 0-7.5.4C4 5 3 5 2 6.5 1 8 1 12 1 12s0 4 1 5.5c1 1.5 2.3 1.5 3 1.6C7.5 19.5 12 19.5 12 19.5s4 0 7.5-.4c.7-.1 2-.1 3-1.6 1-1.5 1-5.5 1-5.5zM9.8 15.5v-7l6 3.5z" />
+                            </svg></a>
+                        <a href="#" aria-label="إكس"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M4 4l16 16M20 4L4 20" />
+                            </svg></a>
+                        <a href="#" aria-label="تيليجرام"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M22 2L2 10l6 2 2 7 3-4 5 4z" />
+                            </svg></a>
+                        <a href="#" aria-label="انستجرام"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>أقسام المعرفة</h5>
+                    <ul>
+                        <li><a href="science.html">العلم</a></li>
+                        <li><a href="faith.html" style="opacity:1;color:var(--gold-500)">الإيمان</a></li>
+                        <li><a href="life.html">الحياة</a></li>
+                        <li><a href="library.html">مكتبة المعرفة</a></li>
+                        <li><a href="pulpit.html">منبر الجمعة</a></li>
+                        <li><a href="qa.html">سؤال وجواب</a></li>
+                        <li><a href="stories.html">قصص ودروس وعبر</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>روابط سريعة</h5>
+                    <ul>
+                        <li><a href="soul.html">حديث الروح</a></li>
+                        <li><a href="videos.html">مرئيات المنصة</a></li>
+                        <li><a href="audios.html">صوتيات</a></li>
+                        <li><a href="issues.html">قضايا معاصرة</a></li>
+                        <li><a href="games.html">مسابقات وألغاز</a></li>
+                        <li><a href="entertainment.html">ترفيه هادف</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-news" id="newsletter">
+                    <h5>النشرة البريدية والتواصل</h5>
+                    <p>اشترك لتصلك أحدث المقالات والفتاوى أسبوعياً، أو تواصل معنا مباشرة.</p>
+                    <form id="newsletterForm">
+                        <label for="nlName" class="sr-only">الاسم</label>
+                        <input id="nlName" name="nlName" type="text" placeholder="اسمك" required>
+                        <label for="nlEmail" class="sr-only">البريد الإلكتروني</label>
+                        <input id="nlEmail" name="nlEmail" type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.5.5-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.3z" />
+                            </svg>
+                            إرسال عبر واتساب
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© ٢٠٢٦ منصة العلم والإيمان والحياة. جميع الحقوق محفوظة.</span>
+                <span><a href="#">سياسة الخصوصية</a> · <a href="#">الشروط والأحكام</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JS ===== -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

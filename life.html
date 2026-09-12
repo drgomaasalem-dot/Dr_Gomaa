@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإنسان وبناء الذات | العلم والإيمان والحياة</title>
+    <meta name="description"
+        content="قسم الإنسان وبناء الذات في منصة العلم والإيمان والحياة - تطوير الذات، إدارة الوقت، التغلب على التسويف، بناء العادات، تحديد الأهداف، الثقة بالنفس">
+    <meta name="keywords"
+        content="بناء الذات, تطوير الذات, إدارة الوقت, التغلب على التسويف, بناء العادات, تحديد الأهداف, الثقة بالنفس">
+    <link rel="canonical" href="https://www.elm-eman-hayah.com/self-development.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.elm-eman-hayah.com/self-development.html">
+    <meta property="og:site_name" content="العلم والإيمان والحياة">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:title" content="الإنسان وبناء الذات | العلم والإيمان والحياة">
+    <meta property="og:description"
+        content="قسم الإنسان وبناء الذات في منصة العلم والإيمان والحياة - تطوير الذات، إدارة الوقت، التغلب على التسويف، بناء العادات، تحديد الأهداف، الثقة بالنفس.">
+    <meta property="og:image" content="https://www.elm-eman-hayah.com/assets/og-cover.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="الإنسان وبناء الذات | العلم والإيمان والحياة">
+    <meta name="twitter:description" content="قسم الإنسان وبناء الذات في منصة العلم والإيمان والحياة.">
+    <meta name="twitter:image" content="https://www.elm-eman-hayah.com/assets/og-cover.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "الإنسان وبناء الذات",
+        "description": "قسم الإنسان وبناء الذات في منصة العلم والإيمان والحياة - تطوير الذات، إدارة الوقت، التغلب على التسويف، بناء العادات، تحديد الأهداف، الثقة بالنفس.",
+        "url": "https://www.elm-eman-hayah.com/self-development.html",
+        "isPartOf": {
+            "@id": "https://www.elm-eman-hayah.com/#website"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "الإنسان وبناء الذات"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* تخصيص صفحة الإنسان وبناء الذات */
+        .self-hero {
+            padding-block: 60px 80px;
+            background: linear-gradient(160deg, var(--navy-900), var(--navy-800));
+            color: var(--gold-100);
+        }
+
+        .self-hero .section-head h2 {
+            color: var(--white);
+        }
+
+        .self-hero .section-head p {
+            color: var(--gold-200);
+            opacity: .8;
+        }
+
+        .self-hero .eyebrow {
+            background: rgba(212, 175, 55, .15);
+            border-color: var(--gold-500);
+            color: var(--gold-500);
+        }
+
+        .self-hero .eyebrow::before {
+            background: var(--gold-500);
+        }
+
+        .self-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        @media (max-width: 900px) {
+            .self-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .self-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .self-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 28px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: var(--shadow-sm);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+        }
+
+        .self-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--line-gold);
+        }
+
+        .self-card .icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 16px;
+            background: linear-gradient(150deg, var(--gold-100), var(--gold-200));
+            border: 1px solid var(--line-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .self-card .icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--gold-700);
+        }
+
+        .self-card h3 {
+            font-size: 1.12rem;
+        }
+
+        .self-card p {
+            color: var(--navy-500);
+            font-size: .88rem;
+            flex: 1;
+        }
+
+        .self-card .meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 14px;
+            border-top: 1px dashed var(--line);
+            font-family: var(--font-utility);
+            font-size: .8rem;
+        }
+
+        .self-card .meta .count {
+            color: var(--navy-300);
+            font-weight: 600;
+        }
+
+        .self-card .meta .link {
+            color: var(--gold-700);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .self-card .meta .link svg {
+            width: 13px;
+            height: 13px;
+            transition: transform .2s;
+        }
+
+        .self-card:hover .meta .link svg {
+            transform: translateX(-3px);
+        }
+
+        .self-intro {
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .self-intro p {
+            color: var(--navy-500);
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-dates">
+                <span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <rect x="3" y="5" width="18" height="16" rx="2" />
+                        <path d="M16 3v4M8 3v4M3 10h18" />
+                    </svg>
+                    ٩ ربيع الآخر ١٤٤٨هـ
+                </span>
+                <span>الموافق ٣٠ أغسطس ٢٠٢٦م</span>
+            </div>
+            <div class="topbar-links">
+                <a href="about-sheikh.html">عن الشيخ والمنصة</a>
+                <a href="#newsletter">النشرة البريدية</a>
+                <a href="contact.html">تواصل معنا</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-main">
+            <a href="index.html" class="brand">
+                <span class="brand-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                        <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                        <path d="M12 22v-4" />
+                    </svg>
+                </span>
+                <span class="brand-text">
+                    <strong>العلم والإيمان والحياة</strong>
+                    <span>موسوعة الفكر والمعرفة الشاملة</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="التنقل الرئيسي">
+                <ul class="nav-list">
+                    <!-- ===== الإيمان ===== -->
+                    <li class="nav-item">
+                        <button class="nav-link">الإيمان
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-col"><a href="faith.html#quran"><strong>القرآن الكريم</strong><small>تدبر
+                                        الآيات وحفظها</small></a></div>
+                            <div class="mega-col"><a href="faith.html#sunnah"><strong>السنة النبوية</strong><small>شرح
+                                        وتخريج الأحاديث</small></a></div>
+                            <div class="mega-col"><a href="faith.html#aqeedah"><strong>العقيدة</strong><small>بناء
+                                        التصور الإيماني السليم</small></a></div>
+                            <div class="mega-col"><a href="faith.html#fiqh"><strong>الفقه</strong><small>أحكام العبادات
+                                        والمعاملات</small></a></div>
+                            <div class="mega-col"><a href="faith.html#seerah"><strong>السيرة النبوية</strong><small>دروس
+                                        من حياة المصطفى ﷺ</small></a></div>
+                            <div class="mega-col"><a href="faith.html#akhlaq"><strong>الأخلاق</strong><small>حسن
+                                        المعاملة وسمو السلوك</small></a></div>
+                            <div class="mega-col"><a href="faith.html#tazkiyah"><strong>تزكية النفس</strong><small>تطهير
+                                        القلب وصفاء الروح</small></a></div>
+                            <div class="mega-col"><a href="faith.html#adkar"><strong>الأدعية والأذكار</strong><small>حصن
+                                        المسلم اليومي</small></a></div>
+                            <div class="mega-col"><a href="faith.html#stories"><strong>قصص وعبر</strong><small>عظات من
+                                        القرآن والتاريخ</small></a></div>
+                        </div>
+                    </li>
+
+                    <!-- ===== العلم والمعرفة ===== -->
+                    <li class="nav-item">
+                        <button class="nav-link">العلم والمعرفة
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-col"><a href="knowledge.html#culture"><strong>الثقافة
+                                        العامة</strong><small>معارف متنوعة نافعة</small></a></div>
+                            <div class="mega-col"><a href="knowledge.html#science"><strong>العلوم
+                                        المبسّطة</strong><small>حقائق علمية بلغة يسيرة</small></a></div>
+                            <div class="mega-col"><a href="knowledge.html#history"><strong>التاريخ
+                                        والحضارة</strong><small>دروس من إرث الأمة</small></a></div>
+                            <div class="mega-col"><a href="knowledge.html#arabic"><strong>اللغة
+                                        العربية</strong><small>سلامة اللسان وبيانه</small></a></div>
+                            <div class="mega-col"><a href="knowledge.html#thought"><strong>الفكر
+                                        والثقافة</strong><small>قراءة واعية للواقع</small></a></div>
+                            <div class="mega-col"><a href="knowledge.html#books"><strong>الكتب
+                                        وملخصاتها</strong><small>خلاصات مركّزة ومفيدة</small></a></div>
+                            <div class="mega-col"><a href="knowledge.html#tech"><strong>التكنولوجيا والذكاء
+                                        الاصطناعي</strong><small>فهم عصرنا الرقمي</small></a></div>
+                            <div class="mega-col"><a href="knowledge.html#critical"><strong>التفكير
+                                        النقدي</strong><small>الحكم الصحيح على الأمور</small></a></div>
+                        </div>
+                    </li>
+
+                    <!-- ===== الإنسان وبناء الذات ===== -->
+                    <li class="nav-item">
+                        <button class="nav-link">الإنسان وبناء الذات
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-col"><a href="self-development.html#self"><strong>تطوير
+                                        الذات</strong><small>اكتشاف القدرات وتنميتها</small></a></div>
+                            <div class="mega-col"><a href="self-development.html#time"><strong>إدارة
+                                        الوقت</strong><small>تنظيم العمر واغتنامه</small></a></div>
+                            <div class="mega-col"><a href="self-development.html#procrastination"><strong>التغلب على
+                                        التسويف</strong><small>خطوات المبادرة الفورية</small></a></div>
+                            <div class="mega-col"><a href="self-development.html#habits"><strong>بناء
+                                        العادات</strong><small>عادات راسخة نافعة</small></a></div>
+                            <div class="mega-col"><a href="self-development.html#goals"><strong>تحديد
+                                        الأهداف</strong><small>رؤية واضحة للمستقبل</small></a></div>
+                            <div class="mega-col"><a href="self-development.html#confidence"><strong>الثقة
+                                        بالنفس</strong><small>احترام الذات وتقديرها</small></a></div>
+                        </div>
+                    </li>
+
+                    <!-- ===== الأسرة والتربية ===== -->
+                    <li class="nav-item">
+                        <button class="nav-link">الأسرة والتربية
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-col"><a href="family.html#marriage"><strong>الزواج</strong><small>الاختيار
+                                        والتأسيس السليم</small></a></div>
+                            <div class="mega-col"><a href="family.html#couple"><strong>الحياة
+                                        الزوجية</strong><small>المودة والرحمة بين الأزواج</small></a></div>
+                            <div class="mega-col"><a href="family.html#children"><strong>تربية
+                                        الأبناء</strong><small>غرس القيم منذ الصغر</small></a></div>
+                            <div class="mega-col"><a href="family.html#teens"><strong>المراهقون</strong><small>فهم مرحلة
+                                        التغيّر ومرافقتها</small></a></div>
+                            <div class="mega-col"><a href="family.html#faith"><strong>التربية
+                                        الإيمانية</strong><small>زرع محبة الله في القلوب</small></a></div>
+                            <div class="mega-col"><a href="family.html#digital"><strong>التربية
+                                        الرقمية</strong><small>حماية الأبناء في العالم الرقمي</small></a></div>
+                            <div class="mega-col"><a href="family.html#problems"><strong>مشكلات
+                                        الأسرة</strong><small>حلول عملية وهادئة</small></a></div>
+                        </div>
+                    </li>
+
+                    <!-- ===== الشباب والمستقبل ===== -->
+                    <li class="nav-item">
+                        <button class="nav-link">الشباب والمستقبل
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-col"><a href="youth.html#study"><strong>الدراسة
+                                        والجامعة</strong><small>اختيار التخصص والتفوق</small></a></div>
+                            <div class="mega-col"><a href="youth.html#personality"><strong>بناء
+                                        الشخصية</strong><small>الثبات في زمن التغيّر</small></a></div>
+                            <div class="mega-col"><a href="youth.html#faith"><strong>الشباب والإيمان</strong><small>ردود
+                                        علمية رصينة وهادئة</small></a></div>
+                            <div class="mega-col"><a href="youth.html#issues"><strong>قضايا الشباب</strong><small>مسارات
+                                        نجاح واقعية</small></a></div>
+                        </div>
+                    </li>
+
+                    <!-- ===== العمل والرزق والمال ===== -->
+                    <li class="nav-item">
+                        <button class="nav-link">العمل والرزق والمال
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-col"><a href="work.html#ethics"><strong>أخلاقيات المهنة
+                                        والإتقان</strong><small>الأمانة في العمل</small></a></div>
+                            <div class="mega-col"><a href="work.html#finance"><strong>إدارة المال
+                                        والادخار</strong><small>الحلال والحرام في الكسب</small></a></div>
+                            <div class="mega-col"><a href="work.html#projects"><strong>المشروعات الصغيرة والعمل
+                                        الحر</strong><small>خطوات عملية للانطلاق</small></a></div>
+                            <div class="mega-col"><a href="work.html#rizq"><strong>الرزق والتوكل</strong><small>السعي مع
+                                        اليقين بالله</small></a></div>
+                        </div>
+                    </li>
+
+                    <!-- ===== الحياة والمجتمع ===== -->
+                    <li class="nav-item">
+                        <button class="nav-link">الحياة والمجتمع
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-col"><a href="society.html#issues"><strong>قضايا
+                                        المجتمع</strong><small>روابط الجيرة والتكافل</small></a></div>
+                            <div class="mega-col"><a href="society.html#ethics"><strong>الأخلاق
+                                        العامة</strong><small>سلوك يليق بالمجتمع المسلم</small></a></div>
+                            <div class="mega-col"><a href="society.html#poverty"><strong>الفقر
+                                        والغلاء</strong><small>مواجهة واقعية بروح الأمل</small></a></div>
+                            <div class="mega-col"><a href="society.html#education"><strong>التعليم والمسؤولية
+                                        المجتمعية</strong><small>دور الفرد في الإصلاح</small></a></div>
+                            <div class="mega-col"><a href="society.html#current"><strong>قضايا
+                                        العصر</strong><small>الظواهر المعاصرة وعلاجها</small></a></div>
+                        </div>
+                    </li>
+
+                    <!-- ===== المزيد ===== -->
+                    <li class="nav-item">
+                        <button class="nav-link">المزيد
+                            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-col"><a href="fatwa-portal.html"><strong>بوابة الأسئلة
+                                        الكبرى</strong><small>كيف؟ / ماذا أفعل؟ / لماذا؟</small></a></div>
+                            <div class="mega-col"><a href="programs.html"><strong>برامج المنصة</strong><small>سلاسل
+                                        وبرامج ثابتة مميزة</small></a></div>
+                            <div class="mega-col"><a href="media.html"><strong>المرئي والمسموع</strong><small>فيديوهات
+                                        وخطب وبودكاست</small></a></div>
+                            <div class="mega-col"><a href="library.html"><strong>مكتبة المعرفة</strong><small>كتب
+                                        ومقالات وملخصات</small></a></div>
+                            <div class="mega-col"><a href="ask.html"><strong>اسأل الشيخ</strong><small>أرسل سؤالك
+                                        مباشرة</small></a></div>
+                            <div class="mega-col"><a href="verify.html"><strong>تحقّق</strong><small>تصحيح الشائعات
+                                        والمفاهيم</small></a></div>
+                            <div class="mega-col"><a href="community.html"><strong>مجتمع المنصة</strong><small>شارك
+                                        وساهم وتفاعل</small></a></div>
+                            <div class="mega-col"><a href="seasons.html"><strong>المواسم والمناسبات</strong><small>محتوى
+                                        موسمي خاص</small></a></div>
+                            <div class="mega-col"><a href="about-sheikh.html"><strong>عن الشيخ
+                                        والمنصة</strong><small>السيرة والمؤلفات والإنتاج العلمي</small></a></div>
+                            <div class="mega-col"><a href="contact.html"><strong>تواصل معنا</strong><small>راسلنا عبر
+                                        جميع القنوات</small></a></div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="nav-cta">
+                <a href="ask.html" class="btn btn-outline">اسأل الشيخ</a>
+                <button class="burger" id="burgerBtn" aria-label="القائمة" aria-expanded="false"><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE DRAWER ===== -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-label="القائمة الجانبية">
+        <div class="drawer-head">
+            <span class="brand-text"><strong style="color:#fff">العلم والإيمان والحياة</strong></span>
+            <button class="drawer-close" id="drawerClose" aria-label="إغلاق">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f0e2bd" stroke-width="2">
+                    <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+            </button>
+        </div>
+        <div class="drawer-accordion">
+            <a class="drawer-top-link" href="index.html">🏠 الرئيسية</a>
+            <details>
+                <summary class="drawer-top-link">🕌 الإيمان <svg class="chev" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.4">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg></summary>
+                <div class="drawer-sub"><a href="faith.html#quran">القرآن الكريم</a><a href="faith.html#sunnah">السنة
+                        النبوية</a><a href="faith.html#aqeedah">العقيدة</a><a href="faith.html#fiqh">الفقه</a><a
+                        href="faith.html#seerah">السيرة النبوية</a><a href="faith.html#akhlaq">الأخلاق</a><a
+                        href="faith.html#tazkiyah">تزكية النفس</a><a href="faith.html#adkar">الأدعية والأذكار</a><a
+                        href="faith.html#stories">قصص وعبر</a></div>
+            </details>
+            <details>
+                <summary class="drawer-top-link">📚 العلم والمعرفة <svg class="chev" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.4">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg></summary>
+                <div class="drawer-sub"><a href="knowledge.html#culture">الثقافة العامة</a><a
+                        href="knowledge.html#science">العلوم المبسّطة</a><a href="knowledge.html#history">التاريخ
+                        والحضارة</a><a href="knowledge.html#arabic">اللغة العربية</a><a
+                        href="knowledge.html#thought">الفكر والثقافة</a><a href="knowledge.html#books">الكتب
+                        وملخصاتها</a><a href="knowledge.html#tech">التكنولوجيا والذكاء الاصطناعي</a><a
+                        href="knowledge.html#critical">التفكير النقدي</a></div>
+            </details>
+            <details open>
+                <summary class="drawer-top-link">🌱 الإنسان وبناء الذات <svg class="chev" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.4">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg></summary>
+                <div class="drawer-sub"><a href="self-development.html#self">تطوير الذات</a><a
+                        href="self-development.html#time">إدارة الوقت</a><a
+                        href="self-development.html#procrastination">التغلب على التسويف</a><a
+                        href="self-development.html#habits">بناء العادات</a><a href="self-development.html#goals">تحديد
+                        الأهداف</a><a href="self-development.html#confidence">الثقة بالنفس</a></div>
+            </details>
+            <details>
+                <summary class="drawer-top-link">👨‍👩‍👧 الأسرة والتربية <svg class="chev" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.4">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg></summary>
+                <div class="drawer-sub"><a href="family.html#marriage">الزواج</a><a href="family.html#couple">الحياة
+                        الزوجية</a><a href="family.html#children">تربية الأبناء</a><a
+                        href="family.html#teens">المراهقون</a><a href="family.html#faith">التربية الإيمانية</a><a
+                        href="family.html#digital">التربية الرقمية</a><a href="family.html#problems">مشكلات الأسرة</a>
+                </div>
+            </details>
+            <details>
+                <summary class="drawer-top-link">👨‍🎓 الشباب والمستقبل <svg class="chev" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.4">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg></summary>
+                <div class="drawer-sub"><a href="youth.html#study">الدراسة والجامعة</a><a
+                        href="youth.html#personality">بناء الشخصية</a><a href="youth.html#faith">الشباب والإيمان</a><a
+                        href="youth.html#issues">قضايا الشباب</a></div>
+            </details>
+            <details>
+                <summary class="drawer-top-link">💼 العمل والرزق والمال <svg class="chev" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2.4">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg></summary>
+                <div class="drawer-sub"><a href="work.html#ethics">أخلاقيات المهنة والإتقان</a><a
+                        href="work.html#finance">إدارة المال والادخار</a><a href="work.html#projects">المشروعات الصغيرة
+                        والعمل الحر</a><a href="work.html#rizq">الرزق والتوكل</a></div>
+            </details>
+            <details>
+                <summary class="drawer-top-link">🌍 الحياة والمجتمع <svg class="chev" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.4">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg></summary>
+                <div class="drawer-sub"><a href="society.html#issues">قضايا المجتمع</a><a
+                        href="society.html#ethics">الأخلاق العامة</a><a href="society.html#poverty">الفقر والغلاء</a><a
+                        href="society.html#education">التعليم والمسؤولية المجتمعية</a><a
+                        href="society.html#current">قضايا العصر</a></div>
+            </details>
+            <a class="drawer-top-link" href="fatwa-portal.html">❓ بوابة الأسئلة الكبرى</a>
+            <a class="drawer-top-link" href="programs.html">🎙️ برامج المنصة</a>
+            <a class="drawer-top-link" href="media.html">🎥 المرئي والمسموع</a>
+            <a class="drawer-top-link" href="library.html">📖 مكتبة المعرفة</a>
+            <a class="drawer-top-link" href="ask.html">❓ اسأل الشيخ</a>
+            <a class="drawer-top-link" href="verify.html">🔍 تحقّق</a>
+            <a class="drawer-top-link" href="community.html">🤝 مجتمع المنصة</a>
+            <a class="drawer-top-link" href="seasons.html">🌙 المواسم والمناسبات</a>
+            <a class="drawer-top-link" href="about-sheikh.html">👤 عن الشيخ والمنصة</a>
+            <a class="drawer-top-link" href="contact.html">📞 تواصل معنا</a>
+        </div>
+        <div class="drawer-foot">
+            <a href="ask.html" class="btn btn-gold">اسأل الشيخ</a>
+            <a href="contact.html" class="btn btn-outline" style="color:#f0e2bd;border-color:rgba(212,175,55,.5)">تواصل
+                معنا</a>
+        </div>
+    </aside>
+
+    <!-- ===== NEWS TICKER ===== -->
+    <div class="ticker-bar">
+        <div class="container">
+            <div class="ticker-inner">
+                <div class="ticker-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="label-full">جديد المنصة</span>
+                </div>
+                <div class="ticker-viewport">
+                    <div class="ticker-track" id="tickerTrack">
+                        <span><time>منذ ساعتين</time> فتوى جديدة: حكم الجمع بين الصلاتين في السفر الطويل</span>
+                        <span><time>اليوم</time> مقال: كيف تحافظ على خشوعك في الصلاة وسط الانشغال؟</span>
+                        <span><time>أمس</time> حلقة مرئية جديدة: أسس التربية الإيمانية للأبناء</span>
+                        <span><time>منذ ٣ أيام</time> فتوى: أحكام الزكاة على الأسهم والمحافظ الاستثمارية</span>
+                        <span><time>منذ ساعتين</time> فتوى جديدة: حكم الجمع بين الصلاتين في السفر الطويل</span>
+                        <span><time>اليوم</time> مقال: كيف تحافظ على خشوعك في الصلاة وسط الانشغال؟</span>
+                        <span><time>أمس</time> حلقة مرئية جديدة: أسس التربية الإيمانية للأبناء</span>
+                        <span><time>منذ ٣ أيام</time> فتوى: أحكام الزكاة على الأسهم والمحافظ الاستثمارية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ===== SELF HERO ===== -->
+        <section class="self-hero">
+            <div class="container">
+                <div class="section-head">
+                    <div class="divider-motif"></div>
+                    <span class="eyebrow">بناء الإنسان</span>
+                    <h2>الإنسان وبناء الذات: رحلة التغيير من الداخل</h2>
+                    <p>برامج وأدوات عملية لبناء شخصية متكاملة، من إدارة الوقت والثقة بالنفس إلى بناء العادات وتحديد
+                        الأهداف.</p>
+                </div>
+                <div class="self-intro">
+                    <p>قسم الإنسان وبناء الذات يقدم ستة محاور متكاملة لتطوير الذات، تجمع بين الرؤية الإيمانية والأدوات
+                        العملية، ليكون عوناً لك في رحلة التغيير والارتقاء.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SELF DEVELOPMENT ===== -->
+        <section class="section section-alt" id="self">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الأول</span>
+                    <h2>تطوير الذات</h2>
+                    <p>اكتشاف القدرات وتنميتها، خطوات عملية في رحلة التغيير الإيجابي المستدام.</p>
+                </div>
+                <div class="self-grid">
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <h3>اكتشاف الذات</h3>
+                        <p>رحلات في فهم النفس ونقاط القوة والضعف، مع أدوات عملية للتطوير الشخصي.</p>
+                        <div class="meta"><span class="count">٢٢ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg></span>
+                        <h3>التغيير الإيجابي</h3>
+                        <p>كيف نبدأ رحلة التغيير، ونتجاوز العقبات ونحافظ على الزخم الإيجابي.</p>
+                        <div class="meta"><span class="count">١٨ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <h3>الوعي الذاتي</h3>
+                        <p>فهم الذات بعمق، وتطوير الوعي بالعواطف والأفكار والسلوكيات.</p>
+                        <div class="meta"><span class="count">١٦ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TIME MANAGEMENT ===== -->
+        <section class="section" id="time">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الثاني</span>
+                    <h2>إدارة الوقت</h2>
+                    <p>تنظيم العمر واغتنامه، مناهج وأدوات عملية لتحقيق أقصى استفادة من الوقت.</p>
+                </div>
+                <div class="self-grid">
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <h3>أساسيات إدارة الوقت</h3>
+                        <p>مبادئ وأسس تنظيم الوقت، وكيف نحدد الأولويات وننجز المهام.</p>
+                        <div class="meta"><span class="count">٢٠ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M4 19V5a2 2 0 012-2h11l3 3v13a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+                                <path d="M8 8h8M8 12h8M8 16h5" />
+                            </svg></span>
+                        <h3>مصفوفة الأولويات</h3>
+                        <p>تطبيق مصفوفة أيزنهاور وغيرها من الأدوات لترتيب الأولويات.</p>
+                        <div class="meta"><span class="count">١٤ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <h3>الاستثمار في الوقت</h3>
+                        <p>كيف نستثمر وقتنا في التعلم والعبادة والعمل لتحقيق النجاح الدائم.</p>
+                        <div class="meta"><span class="count">١٦ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROCRASTINATION ===== -->
+        <section class="section section-alt" id="procrastination">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الثالث</span>
+                    <h2>التغلب على التسويف</h2>
+                    <p>خطوات المبادرة الفورية، فهم أسباب التسويف وعلاجه بأساليب عملية مجربة.</p>
+                </div>
+                <div class="self-grid">
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                            </svg></span>
+                        <h3>أسباب التسويف</h3>
+                        <p>فهم جذور التسويف النفسية والعملية، وكيف نكسر حلقات التأجيل.</p>
+                        <div class="meta"><span class="count">١٨ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg></span>
+                        <h3>استراتيجيات المبادرة</h3>
+                        <p>تقنيات عملية للبدء الفوري، وكيف نتغلب على حالة الجمود.</p>
+                        <div class="meta"><span class="count">٢٠ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <h3>بناء الانضباط الذاتي</h3>
+                        <p>تمارين يومية لبناء الانضباط وقوة الإرادة، والتغلب على الكسل.</p>
+                        <div class="meta"><span class="count">١٤ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== HABITS ===== -->
+        <section class="section" id="habits">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الرابع</span>
+                    <h2>بناء العادات</h2>
+                    <p>عادات راسخة نافعة، كيف نبني عادات إيمانية وحياتية تدوم بإذن الله.</p>
+                </div>
+                <div class="self-grid">
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <h3>علم تكوين العادات</h3>
+                        <p>فهم آلية تكوين العادات في الدماغ، وكيف نزرع عادات جديدة.</p>
+                        <div class="meta"><span class="count">٢٢ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M4 19V5a2 2 0 012-2h11l3 3v13a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
+                                <path d="M8 8h8M8 12h8M8 16h5" />
+                            </svg></span>
+                        <h3>العادات الإيمانية</h3>
+                        <p>بناء عادات الصلاة، القراءة القرآنية، الذكر، والدعاء في الحياة اليومية.</p>
+                        <div class="meta"><span class="count">٢٤ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M3 12h4l3 8 4-16 3 8h4" />
+                            </svg></span>
+                        <h3>قاعدة الـ ٢١ يوماً</h3>
+                        <p>تطبيق قاعدة الـ 21 يوماً في بناء العادات، مع برامج عملية وتحديات.</p>
+                        <div class="meta"><span class="count">١٦ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== GOALS ===== -->
+        <section class="section section-alt" id="goals">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الخامس</span>
+                    <h2>تحديد الأهداف</h2>
+                    <p>رؤية واضحة للمستقبل، منهجية تحديد الأهداف الذكية ومتابعة التقدم نحوها.</p>
+                </div>
+                <div class="self-grid">
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg></span>
+                        <h3>الأهداف الذكية SMART</h3>
+                        <p>تطبيق منهجية SMART في تحديد الأهداف الشخصية والمهنية والروحية.</p>
+                        <div class="meta"><span class="count">١٨ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <h3>خطط العمل العملية</h3>
+                        <p>تحويل الأهداف إلى خطط عمل قابلة للتنفيذ، مع متابعة التقدم.</p>
+                        <div class="meta"><span class="count">٢٠ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+                            </svg></span>
+                        <h3>التحديات والعقبات</h3>
+                        <p>كيف نتغلب على العقبات التي تعترض طريق تحقيق أهدافنا.</p>
+                        <div class="meta"><span class="count">١٤ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONFIDENCE ===== -->
+        <section class="section" id="confidence">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور السادس</span>
+                    <h2>الثقة بالنفس</h2>
+                    <p>احترام الذات وتقديرها، بناء ثقة حقيقية تنبع من الإيمان والقدرات الشخصية.</p>
+                </div>
+                <div class="self-grid">
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <h3>أسس الثقة بالنفس</h3>
+                        <p>فهم مصادر الثقة الحقيقية، والفرق بين الثقة والغرور.</p>
+                        <div class="meta"><span class="count">٢٠ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M20 6L9 17l-5-5" />
+                            </svg></span>
+                        <h3>تجاوز الخوف</h3>
+                        <p>استراتيجيات عملية للتغلب على الخوف والقلق والخجل الاجتماعي.</p>
+                        <div class="meta"><span class="count">١٨ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                    <article class="self-card">
+                        <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+                                <path d="M12 8v4l3 3" />
+                                <circle cx="12" cy="12" r="9" />
+                            </svg></span>
+                        <h3>التحدث أمام الناس</h3>
+                        <p>مهارات التواصل الفعال، وكيف نثق بأنفسنا في المواقف الاجتماعية.</p>
+                        <div class="meta"><span class="count">١٦ مادة</span><a class="link" href="#">استكشف <svg
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M15 6l-6 6 6 6" />
+                                </svg></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ASK CTA ===== -->
+        <section class="section"
+            style="background:linear-gradient(160deg,var(--navy-900),var(--navy-800));color:var(--gold-100)">
+            <div class="container" style="text-align:center;max-width:720px;margin:0 auto">
+                <div class="divider-motif"
+                    style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='20' viewBox='0 0 64 20'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1.4'%3E%3Cpath d='M2 10h20'/%3E%3Cpath d='M42 10h20'/%3E%3Cpath d='M32 2l8 8-8 8-8-8z'/%3E%3C/g%3E%3C/svg%3E&quot;)">
+                </div>
+                <span class="eyebrow"
+                    style="background:rgba(212,175,55,.15);border-color:var(--gold-500);color:var(--gold-500)">اسأل
+                    الشيخ</span>
+                <h2 style="color:var(--white)">هل لديك سؤال عن بناء الذات أو تطوير النفس؟</h2>
+                <p style="color:var(--gold-200);opacity:.8;margin-bottom:28px">تواصل مع فضيلة الشيخ مباشرة عبر نموذج
+                    "اسأل الشيخ" وسيتم الرد عليك عبر واتساب.</p>
+                <a href="ask.html" class="btn btn-gold" style="font-size:1.05rem;padding:16px 40px">اسأل الشيخ الآن</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand">
+                        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <span class="brand-text"><strong>العلم والإيمان والحياة</strong></span>
+                    </a>
+                    <p>موسوعة رقمية شاملة تجمع بين أصالة العلم الشرعي وواقعية الحياة، لبناء إنسان متزن الإيمان والعقل
+                        والسلوك.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="يوتيوب"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path
+                                    d="M23 12s0-4-1-5.5c-1-1.5-2-1.5-2.5-1.6C16 4.5 12 4.5 12 4.5s-4 0-7.5.4C4 5 3 5 2 6.5 1 8 1 12 1 12s0 4 1 5.5c1 1.5 2.3 1.5 3 1.6C7.5 19.5 12 19.5 12 19.5s4 0 7.5-.4c.7-.1 2-.1 3-1.6 1-1.5 1-5.5 1-5.5zM9.8 15.5v-7l6 3.5z" />
+                            </svg></a>
+                        <a href="#" aria-label="إكس"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M4 4l16 16M20 4L4 20" />
+                            </svg></a>
+                        <a href="#" aria-label="تيليجرام"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M22 2L2 10l6 2 2 7 3-4 5 4z" />
+                            </svg></a>
+                        <a href="#" aria-label="انستجرام"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>أقسام المعرفة</h5>
+                    <ul>
+                        <li><a href="faith.html">الإيمان</a></li>
+                        <li><a href="knowledge.html">العلم والمعرفة</a></li>
+                        <li><a href="self-development.html" style="opacity:1;color:var(--gold-500)">الإنسان وبناء
+                                الذات</a></li>
+                        <li><a href="family.html">الأسرة والتربية</a></li>
+                        <li><a href="youth.html">الشباب والمستقبل</a></li>
+                        <li><a href="work.html">العمل والرزق والمال</a></li>
+                        <li><a href="society.html">الحياة والمجتمع</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>روابط سريعة</h5>
+                    <ul>
+                        <li><a href="fatwa-portal.html">بوابة الأسئلة الكبرى</a></li>
+                        <li><a href="programs.html">برامج المنصة</a></li>
+                        <li><a href="media.html">المرئي والمسموع</a></li>
+                        <li><a href="library.html">مكتبة المعرفة</a></li>
+                        <li><a href="ask.html">اسأل الشيخ</a></li>
+                        <li><a href="verify.html">تحقّق</a></li>
+                        <li><a href="community.html">مجتمع المنصة</a></li>
+                        <li><a href="seasons.html">المواسم والمناسبات</a></li>
+                        <li><a href="about-sheikh.html">عن الشيخ والمنصة</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-news" id="newsletter">
+                    <h5>النشرة البريدية والتواصل</h5>
+                    <p>اشترك لتصلك أحدث المقالات والفتاوى أسبوعياً، أو تواصل معنا مباشرة.</p>
+                    <form id="newsletterForm">
+                        <label for="nlName" class="sr-only">الاسم</label>
+                        <input id="nlName" name="nlName" type="text" placeholder="اسمك" required>
+                        <label for="nlEmail" class="sr-only">البريد الإلكتروني</label>
+                        <input id="nlEmail" name="nlEmail" type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.5.5-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.3z" />
+                            </svg>
+                            إرسال عبر واتساب
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© ٢٠٢٦ منصة العلم والإيمان والحياة. جميع الحقوق محفوظة.</span>
+                <span><a href="#">سياسة الخصوصية</a> · <a href="#">الشروط والأحكام</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JS ===== -->
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

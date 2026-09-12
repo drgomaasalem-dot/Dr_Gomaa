@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | العلم والإيمان والحياة</title>
+    <meta name="description"
+        content="تواصل معنا في منصة العلم والإيمان والحياة - أرسل سؤالك، اقترح موضوعاً، تواصل مع الشيخ، جميع حسابات التواصل الاجتماعي">
+    <meta name="keywords"
+        content="تواصل معنا, أرسل سؤالك, اقترح موضوعاً, تواصل مع الشيخ, واتساب, بريد إلكتروني, وسائل التواصل الاجتماعي">
+    <link rel="canonical" href="https://www.elm-eman-hayah.com/contact.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.elm-eman-hayah.com/contact.html">
+    <meta property="og:site_name" content="العلم والإيمان والحياة">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:title" content="تواصل معنا | العلم والإيمان والحياة">
+    <meta property="og:description"
+        content="تواصل معنا في منصة العلم والإيمان والحياة - أرسل سؤالك، اقترح موضوعاً، تواصل مع الشيخ، جميع حسابات التواصل الاجتماعي.">
+    <meta property="og:image" content="https://www.elm-eman-hayah.com/assets/og-cover.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="تواصل معنا | العلم والإيمان والحياة">
+    <meta name="twitter:description" content="تواصل معنا في منصة العلم والإيمان والحياة.">
+    <meta name="twitter:image" content="https://www.elm-eman-hayah.com/assets/og-cover.jpg">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "تواصل معنا",
+        "description": "تواصل معنا في منصة العلم والإيمان والحياة - أرسل سؤالك، اقترح موضوعاً، تواصل مع الشيخ، جميع حسابات التواصل الاجتماعي.",
+        "url": "https://www.elm-eman-hayah.com/contact.html",
+        "isPartOf": {
+            "@id": "https://www.elm-eman-hayah.com/#website"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "تواصل معنا"
+        }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* تخصيص صفحة تواصل معنا */
+        .contact-hero {
+            padding-block: 60px 80px;
+            background: linear-gradient(160deg, var(--navy-900), var(--navy-800));
+            color: var(--gold-100);
+        }
+
+        .contact-hero .section-head h2 {
+            color: var(--white);
+        }
+
+        .contact-hero .section-head p {
+            color: var(--gold-200);
+            opacity: .8;
+        }
+
+        .contact-hero .eyebrow {
+            background: rgba(212, 175, 55, .15);
+            border-color: var(--gold-500);
+            color: var(--gold-500);
+        }
+
+        .contact-hero .eyebrow::before {
+            background: var(--gold-500);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        @media (max-width: 900px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 28px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            box-shadow: var(--shadow-sm);
+            transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+            text-align: center;
+            align-items: center;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--line-gold);
+        }
+
+        .contact-card .icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(150deg, var(--gold-100), var(--gold-200));
+            border: 2px solid var(--gold-500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-card .icon svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--gold-700);
+        }
+
+        .contact-card h3 {
+            font-size: 1.12rem;
+        }
+
+        .contact-card p {
+            color: var(--navy-500);
+            font-size: .88rem;
+        }
+
+        .contact-card .contact-value {
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--navy-800);
+            font-size: 1rem;
+            direction: ltr;
+        }
+
+        .contact-card .btn {
+            margin-top: 4px;
+        }
+
+        .contact-intro {
+            max-width: 780px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-intro p {
+            color: var(--navy-500);
+            font-size: 1.05rem;
+        }
+
+        /* نموذج التواصل */
+        .contact-form-wrapper {
+            background: var(--white);
+            border: 1px solid var(--line-gold);
+            border-radius: var(--radius-lg);
+            padding: 40px 48px;
+            box-shadow: var(--shadow-md);
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .contact-form-wrapper h3 {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+
+        .contact-form-wrapper .subtitle {
+            text-align: center;
+            color: var(--navy-500);
+            font-size: .95rem;
+            margin-bottom: 24px;
+        }
+
+        .contact-form-wrapper .form-group {
+            margin-bottom: 16px;
+        }
+
+        .contact-form-wrapper label {
+            display: block;
+            font-family: var(--font-utility);
+            font-weight: 700;
+            font-size: .9rem;
+            color: var(--navy-800);
+            margin-bottom: 6px;
+        }
+
+        .contact-form-wrapper label .required {
+            color: #dc3545;
+            margin-right: 2px;
+        }
+
+        .contact-form-wrapper input,
+        .contact-form-wrapper select,
+        .contact-form-wrapper textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--line);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            color: var(--navy-800);
+            background: var(--bg-soft);
+            transition: border-color .25s, box-shadow .25s;
+            font-family: inherit;
+        }
+
+        .contact-form-wrapper input:focus,
+        .contact-form-wrapper select:focus,
+        .contact-form-wrapper textarea:focus {
+            border-color: var(--gold-500);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, .15);
+            background: var(--white);
+        }
+
+        .contact-form-wrapper textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-form-wrapper .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .contact-form-wrapper .btn-submit {
+            width: 100%;
+            padding: 14px;
+            font-size: 1rem;
+            margin-top: 4px;
+        }
+
+        .contact-form-wrapper .btn-submit svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .contact-form-wrapper .wa-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .78rem;
+            color: var(--navy-500);
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .contact-form-wrapper .wa-note svg {
+            width: 14px;
+            height: 14px;
+            stroke: #25D366;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form-wrapper {
+                padding: 24px 16px;
+            }
+
+            .contact-form-wrapper .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* أيقونات وسائل التواصل */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid var(--line-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .25s, border-color .25s, transform .25s;
+        }
+
+        .social-icons a:hover {
+            background: var(--gold-500);
+            border-color: var(--gold-500);
+            transform: translateY(-3px);
+        }
+
+        .social-icons a svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--gold-700);
+            transition: stroke .25s;
+        }
+
+        .social-icons a:hover svg {
+            stroke: var(--navy-900);
+        }
+
+        .social-icons a.whatsapp:hover {
+            background: #25D366;
+            border-color: #25D366;
+        }
+
+        .social-icons a.youtube:hover {
+            background: #FF0000;
+            border-color: #FF0000;
+        }
+
+        .social-icons a.twitter:hover {
+            background: #000000;
+            border-color: #000000;
+        }
+
+        .social-icons a.telegram:hover {
+            background: #0088cc;
+            border-color: #0088cc;
+        }
+
+        .social-icons a.instagram:hover {
+            background: #E4405F;
+            border-color: #E4405F;
+        }
+
+        .social-icons a:hover svg {
+            stroke: var(--white);
+        }
+
+        /* توب بار متجاوب للموبايل */
+        @media (max-width: 600px) {
+            .topbar .container {
+                flex-wrap: nowrap;
+                justify-content: space-between;
+                gap: 6px;
+                padding-inline: 10px;
+            }
+
+            .topbar-dates {
+                gap: 4px;
+                font-size: .7rem;
+                flex-wrap: nowrap;
+                overflow: hidden;
+            }
+
+            .topbar-dates span {
+                white-space: nowrap;
+                font-size: .65rem;
+                display: inline-flex !important;
+                align-items: center;
+                gap: 4px;
+            }
+
+            .topbar-dates span:first-child {
+                font-size: .7rem;
+            }
+
+            .topbar-dates span:last-child {
+                font-size: .6rem;
+                opacity: .8;
+            }
+
+            .topbar-dates span svg {
+                width: 10px;
+                height: 10px;
+                flex: none;
+            }
+
+            .topbar-links {
+                display: flex !important;
+                gap: 6px;
+                font-size: .65rem;
+            }
+
+            .topbar-links a {
+                white-space: nowrap;
+                padding: 2px 6px;
+                font-size: .62rem;
+            }
+
+            .topbar-links a:last-child {
+                color: var(--gold-500);
+                font-weight: 700;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .topbar-dates span:first-child {
+                font-size: .6rem;
+            }
+
+            .topbar-dates span:last-child {
+                font-size: .52rem;
+            }
+
+            .topbar-dates span svg {
+                width: 8px;
+                height: 8px;
+            }
+
+            .topbar-links a {
+                font-size: .55rem;
+                padding: 2px 4px;
+            }
+
+            .topbar .container {
+                padding-inline: 6px;
+                gap: 4px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .topbar-dates span:first-child {
+                font-size: .52rem;
+            }
+
+            .topbar-dates span:last-child {
+                font-size: .45rem;
+            }
+
+            .topbar-links a {
+                font-size: .48rem;
+                padding: 1px 3px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== TOP BAR ===== -->
+    <div class="topbar">
+        <div class="container">
+            <div class="topbar-dates">
+                <span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8">
+                        <rect x="3" y="5" width="18" height="16" rx="2" />
+                        <path d="M16 3v4M8 3v4M3 10h18" />
+                    </svg>
+                    ٩ ربيع الآخر ١٤٤٨هـ
+                </span>
+                <span>الموافق ٣٠ أغسطس ٢٠٢٦م</span>
+            </div>
+            <div class="topbar-links">
+                <a href="about.html">من نحن؟</a>
+                <a href="#newsletter">النشرة البريدية</a>
+                <a href="contact.html">تواصل معنا</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="site-header" id="siteHeader">
+        <div class="container header-main">
+            <a href="index.html" class="brand">
+                <span class="brand-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                        <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                        <path d="M12 22v-4" />
+                    </svg>
+                </span>
+                <span class="brand-text">
+                    <strong>العلم والإيمان والحياة</strong>
+                    <span>موسوعة الفكر والمعرفة الشاملة</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="التنقل الرئيسي">
+                <ul class="nav-list">
+                    <!-- يتم توليدها بواسطة JavaScript -->
+                </ul>
+            </nav>
+
+            <div class="nav-cta">
+                <a href="contact.html" class="btn btn-outline">تواصل معنا</a>
+                <button class="burger" id="burgerBtn" aria-label="القائمة" aria-expanded="false"><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== MOBILE DRAWER ===== -->
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <aside class="mobile-drawer" id="mobileDrawer" aria-label="القائمة الجانبية">
+        <div class="drawer-head">
+            <span class="brand-text"><strong style="color:#fff">العلم والإيمان والحياة</strong></span>
+            <button class="drawer-close" id="drawerClose" aria-label="إغلاق">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f0e2bd" stroke-width="2">
+                    <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+            </button>
+        </div>
+        <div class="drawer-accordion">
+            <!-- يتم توليدها بواسطة JavaScript -->
+        </div>
+        <div class="drawer-foot">
+            <a href="contact.html" class="btn btn-gold">تواصل معنا</a>
+            <a href="contact.html" class="btn btn-outline" style="color:#f0e2bd;border-color:rgba(212,175,55,.5)">اتصل
+                بنا</a>
+        </div>
+    </aside>
+
+    <!-- ===== NEWS TICKER ===== -->
+    <div class="ticker-bar">
+        <div class="container">
+            <div class="ticker-inner">
+                <div class="ticker-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="label-full">جديد المنصة</span>
+                </div>
+                <div class="ticker-viewport">
+                    <div class="ticker-track" id="tickerTrack">
+                        <span><time>منذ ساعتين</time> سؤال جديد: حكم الجمع بين الصلاتين في السفر الطويل</span>
+                        <span><time>اليوم</time> اقتراح: موضوع تربية الأبناء في العصر الرقمي</span>
+                        <span><time>أمس</time> رسالة من أحد المتابعين: كيف أبدأ في حفظ القرآن؟</span>
+                        <span><time>منذ ٣ أيام</time> سؤال: أحكام الزكاة على الأسهم والمحافظ الاستثمارية</span>
+                        <span><time>منذ ساعتين</time> سؤال جديد: حكم الجمع بين الصلاتين في السفر الطويل</span>
+                        <span><time>اليوم</time> اقتراح: موضوع تربية الأبناء في العصر الرقمي</span>
+                        <span><time>أمس</time> رسالة من أحد المتابعين: كيف أبدأ في حفظ القرآن؟</span>
+                        <span><time>منذ ٣ أيام</time> سؤال: أحكام الزكاة على الأسهم والمحافظ الاستثمارية</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+
+        <!-- ===== CONTACT HERO ===== -->
+        <section class="contact-hero">
+            <div class="container">
+                <div class="section-head">
+                    <div class="divider-motif"></div>
+                    <span class="eyebrow">نسعد بتواصلك</span>
+                    <h2>تواصل معنا: نحن هنا لنخدمك</h2>
+                    <p>نرحب بأسئلتكم واقتراحاتكم، ونتطلع إلى التواصل معكم عبر جميع القنوات المتاحة.</p>
+                </div>
+                <div class="contact-intro">
+                    <p>يمكنك التواصل معنا عبر واتساب، البريد الإلكتروني، وسائل التواصل الاجتماعي، أو عبر نموذج التواصل
+                        المباشر. سنكون سعداء بالرد على استفساراتكم في أقرب وقت.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT CARDS ===== -->
+        <section class="section section-alt" id="ask">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الأول</span>
+                    <h2>أرسل سؤالك</h2>
+                    <p>اطرح سؤالك الشرعي أو الحياتي ليصلك جواب موثّق من فضيلة الشيخ.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                                <path
+                                    d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.5.5-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.3z" />
+                            </svg>
+                        </span>
+                        <h3>واتساب</h3>
+                        <p>للتواصل المباشر والرد السريع</p>
+                        <span class="contact-value">+20 101 771 2000</span>
+                        <a href="https://wa.me/201017712000" target="_blank" class="btn btn-gold">📱 أرسل سؤالك</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                                <rect x="3" y="5" width="18" height="14" rx="2" />
+                                <path d="M3 5l9 7 9-7" />
+                            </svg>
+                        </span>
+                        <h3>البريد الإلكتروني</h3>
+                        <p>للتواصل الرسمي والاستفسارات</p>
+                        <span class="contact-value">info@elm-eman-hayah.com</span>
+                        <a href="mailto:info@elm-eman-hayah.com" class="btn btn-outline">✉️ أرسل بريداً</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <span class="icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8">
+                                <path
+                                    d="M22 16.9v3a2 2 0 01-2.2 2c-4.3-.4-8.4-2.1-11.5-5.2A18.2 18.2 0 013.1 5.2 2 2 0 015 3h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.5 2.1l-1.2 1.2a14.8 14.8 0 004.5 4.5l1.2-1.2a2 2 0 012.1-.5c.8.3 1.7.5 2.6.6A2 2 0 0122 16.9z" />
+                            </svg>
+                        </span>
+                        <h3>الاتصال الهاتفي</h3>
+                        <p>للتواصل الصوتي المباشر</p>
+                        <span class="contact-value">+20 101 771 2000</span>
+                        <a href="tel:+201017712000" class="btn btn-outline">📞 اتصل بنا</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SUGGEST ===== -->
+        <section class="section" id="suggest">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الثاني</span>
+                    <h2>اقترح موضوعاً</h2>
+                    <p>ساعدنا في اختيار الموضوعات القادمة الأكثر أهمية لك.</p>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h3>💡 اقترح موضوعاً جديداً</h3>
+                    <p class="subtitle">سيتم دراسة اقتراحك وإضافته إلى خطة المحتوى القادم.</p>
+
+                    <form id="suggestForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="suggestName">الاسم الكريم <span class="required">*</span></label>
+                                <input id="suggestName" type="text" placeholder="أدخل اسمك" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="suggestCategory">التصنيف المقترح <span class="required">*</span></label>
+                                <select id="suggestCategory" required>
+                                    <option value="" disabled selected>اختر التصنيف</option>
+                                    <option value="العلم">العلم</option>
+                                    <option value="الإيمان">الإيمان</option>
+                                    <option value="الحياة">الحياة</option>
+                                    <option value="مكتبة المعرفة">مكتبة المعرفة</option>
+                                    <option value="منبر الجمعة">منبر الجمعة</option>
+                                    <option value="سؤال وجواب">سؤال وجواب</option>
+                                    <option value="قصص ودروس وعبر">قصص ودروس وعبر</option>
+                                    <option value="حديث الروح">حديث الروح</option>
+                                    <option value="مرئيات المنصة">مرئيات المنصة</option>
+                                    <option value="صوتيات">صوتيات</option>
+                                    <option value="قضايا معاصرة">قضايا معاصرة</option>
+                                    <option value="مسابقات وألغاز">مسابقات وألغاز</option>
+                                    <option value="ترفيه هادف">ترفيه هادف</option>
+                                    <option value="أخرى">أخرى</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="suggestTopic">الموضوع المقترح <span class="required">*</span></label>
+                            <textarea id="suggestTopic" placeholder="اكتب موضوعك المقترح بوضوح..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-gold btn-submit">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.5.5-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.3z" />
+                            </svg>
+                            إرسال الاقتراح عبر واتساب
+                        </button>
+
+                        <div class="wa-note">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.5.5-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.3z" />
+                            </svg>
+                            يفتح واتساب في نافذة جديدة
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CONTACT SHEIKH ===== -->
+        <section class="section section-alt" id="sheikh">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الثالث</span>
+                    <h2>تواصل مع الشيخ</h2>
+                    <p>وسيلة منظمة لاستقبال الرسائل والأسئلة والتواصل المباشر مع فضيلة الشيخ.</p>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <h3>📩 تواصل مع الشيخ</h3>
+                    <p class="subtitle">أرسل سؤالك أو رسالتك وسيتم الرد عليك عبر واتساب</p>
+
+                    <form id="contactSheikhForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sheikhName">الاسم الكريم <span class="required">*</span></label>
+                                <input id="sheikhName" type="text" placeholder="أدخل اسمك" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sheikhPhone">رقم الهاتف <span class="required">*</span></label>
+                                <input id="sheikhPhone" type="tel" placeholder="مثال: 01017712000" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sheikhSubject">نوع الرسالة <span class="required">*</span></label>
+                            <select id="sheikhSubject" required>
+                                <option value="" disabled selected>اختر نوع الرسالة</option>
+                                <option value="سؤال علمي">سؤال علمي</option>
+                                <option value="استشارة">استشارة</option>
+                                <option value="اقتراح">اقتراح</option>
+                                <option value="تواصل عام">تواصل عام</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="sheikhMessage">نص الرسالة <span class="required">*</span></label>
+                            <textarea id="sheikhMessage" placeholder="اكتب رسالتك بوضوح..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-gold btn-submit">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.5.5-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.3z" />
+                            </svg>
+                            إرسال الرسالة عبر واتساب
+                        </button>
+
+                        <div class="wa-note">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.5.5-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.3z" />
+                            </svg>
+                            يفتح واتساب في نافذة جديدة
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SOCIAL MEDIA ===== -->
+        <section class="section" id="social">
+            <div class="container">
+                <div class="section-head align-start">
+                    <span class="eyebrow">المحور الرابع</span>
+                    <h2>جميع حسابات التواصل الاجتماعي</h2>
+                    <p>انضم إلينا على منصات التواصل الاجتماعي لتكون على اطلاع بكل جديد.</p>
+                </div>
+
+                <div class="social-icons">
+                    <a href="#" class="whatsapp" target="_blank" aria-label="واتساب">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path
+                                d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.5.5-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.3z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="youtube" target="_blank" aria-label="يوتيوب">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path
+                                d="M23 12s0-4-1-5.5c-1-1.5-2-1.5-2.5-1.6C16 4.5 12 4.5 12 4.5s-4 0-7.5.4C4 5 3 5 2 6.5 1 8 1 12 1 12s0 4 1 5.5c1 1.5 2.3 1.5 3 1.6C7.5 19.5 12 19.5 12 19.5s4 0 7.5-.4c.7-.1 2-.1 3-1.6 1-1.5 1-5.5 1-5.5zM9.8 15.5v-7l6 3.5z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="twitter" target="_blank" aria-label="إكس">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M4 4l16 16M20 4L4 20" />
+                        </svg>
+                    </a>
+                    <a href="#" class="telegram" target="_blank" aria-label="تيليجرام">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <path d="M22 2L2 10l6 2 2 7 3-4 5 4z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="instagram" target="_blank" aria-label="انستجرام">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="5" />
+                            <circle cx="12" cy="12" r="4" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="section"
+            style="background:linear-gradient(160deg,var(--navy-900),var(--navy-800));color:var(--gold-100)">
+            <div class="container" style="text-align:center;max-width:720px;margin:0 auto">
+                <div class="divider-motif"
+                    style="background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='20' viewBox='0 0 64 20'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='1.4'%3E%3Cpath d='M2 10h20'/%3E%3Cpath d='M42 10h20'/%3E%3Cpath d='M32 2l8 8-8 8-8-8z'/%3E%3C/g%3E%3C/svg%3E&quot;)">
+                </div>
+                <span class="eyebrow"
+                    style="background:rgba(212,175,55,.15);border-color:var(--gold-500);color:var(--gold-500)">تواصل
+                    معنا</span>
+                <h2 style="color:var(--white)">هل لديك سؤال أو استفسار؟</h2>
+                <p style="color:var(--gold-200);opacity:.8;margin-bottom:28px">تواصل مع فضيلة الشيخ مباشرة عبر نموذج
+                    "تواصل معنا" وسيتم الرد عليك عبر واتساب.</p>
+                <a href="#sheikh" class="btn btn-gold" style="font-size:1.05rem;padding:16px 40px">تواصل مع الشيخ</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer" id="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand">
+                        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                                <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+                            </svg></span>
+                        <span class="brand-text"><strong>العلم والإيمان والحياة</strong></span>
+                    </a>
+                    <p>موسوعة رقمية شاملة تجمع بين أصالة العلم الشرعي وواقعية الحياة، لبناء إنسان متزن الإيمان والعقل
+                        والسلوك.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="يوتيوب"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path
+                                    d="M23 12s0-4-1-5.5c-1-1.5-2-1.5-2.5-1.6C16 4.5 12 4.5 12 4.5s-4 0-7.5.4C4 5 3 5 2 6.5 1 8 1 12 1 12s0 4 1 5.5c1 1.5 2.3 1.5 3 1.6C7.5 19.5 12 19.5 12 19.5s4 0 7.5-.4c.7-.1 2-.1 3-1.6 1-1.5 1-5.5 1-5.5zM9.8 15.5v-7l6 3.5z" />
+                            </svg></a>
+                        <a href="#" aria-label="إكس"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M4 4l16 16M20 4L4 20" />
+                            </svg></a>
+                        <a href="#" aria-label="تيليجرام"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <path d="M22 2L2 10l6 2 2 7 3-4 5 4z" />
+                            </svg></a>
+                        <a href="#" aria-label="انستجرام"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                            </svg></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h5>أقسام المعرفة</h5>
+                    <ul>
+                        <li><a href="science.html">العلم</a></li>
+                        <li><a href="faith.html">الإيمان</a></li>
+                        <li><a href="life.html">الحياة</a></li>
+                        <li><a href="library.html">مكتبة المعرفة</a></li>
+                        <li><a href="pulpit.html">منبر الجمعة</a></li>
+                        <li><a href="qa.html">سؤال وجواب</a></li>
+                        <li><a href="stories.html">قصص ودروس وعبر</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h5>روابط سريعة</h5>
+                    <ul>
+                        <li><a href="soul.html">حديث الروح</a></li>
+                        <li><a href="videos.html">مرئيات المنصة</a></li>
+                        <li><a href="audios.html">صوتيات</a></li>
+                        <li><a href="issues.html">قضايا معاصرة</a></li>
+                        <li><a href="games.html">مسابقات وألغاز</a></li>
+                        <li><a href="entertainment.html">ترفيه هادف</a></li>
+                        <li><a href="contact.html" style="opacity:1;color:var(--gold-500)">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-news" id="newsletter">
+                    <h5>النشرة البريدية والتواصل</h5>
+                    <p>اشترك لتصلك أحدث المقالات والفتاوى أسبوعياً، أو تواصل معنا مباشرة.</p>
+                    <form id="newsletterForm">
+                        <label for="nlName" class="sr-only">الاسم</label>
+                        <input id="nlName" name="nlName" type="text" placeholder="اسمك" required>
+                        <label for="nlEmail" class="sr-only">البريد الإلكتروني</label>
+                        <input id="nlEmail" name="nlEmail" type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.3-4.8-4.2-4.9-4.4-.1-.2-1.2-1.6-1.2-3 0-1.4.7-2.1 1-2.4.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.5.5-.2.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1 .2-.2.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.6-.1 1.3z" />
+                            </svg>
+                            إرسال عبر واتساب
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© ٢٠٢٦ منصة العلم والإيمان والحياة. جميع الحقوق محفوظة.</span>
+                <span><a href="#">سياسة الخصوصية</a> · <a href="#">الشروط والأحكام</a></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JS ===== -->
+    <script src="js/script.js"></script>
+
+    <script>
+        // ===== نموذج الاقتراح =====
+        (function () {
+            var suggestForm = document.getElementById('suggestForm');
+            if (suggestForm) {
+                suggestForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    var name = document.getElementById('suggestName');
+                    var category = document.getElementById('suggestCategory');
+                    var topic = document.getElementById('suggestTopic');
+
+                    if (!name || !category || !topic) return;
+
+                    var nameVal = name.value.trim();
+                    var categoryVal = category.value.trim();
+                    var topicVal = topic.value.trim();
+
+                    if (!nameVal || !categoryVal || !topicVal) {
+                        suggestForm.reportValidity();
+                        return;
+                    }
+
+                    var fullMessage =
+                        '💡 *اقتراح موضوع من منصة العلم والإيمان والحياة*\n\n' +
+                        '👤 *الاسم:* ' + nameVal + '\n' +
+                        '📂 *التصنيف:* ' + categoryVal + '\n' +
+                        '📝 *الموضوع المقترح:*\n' + topicVal + '\n\n' +
+                        '_تم الإرسال عبر صفحة "تواصل معنا"_';
+
+                    var url = 'https://wa.me/201017712000?text=' + encodeURIComponent(fullMessage);
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                    suggestForm.reset();
+                });
+            }
+        })();
+
+        // ===== نموذج تواصل مع الشيخ =====
+        (function () {
+            var form = document.getElementById('contactSheikhForm');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    var name = document.getElementById('sheikhName');
+                    var phone = document.getElementById('sheikhPhone');
+                    var subject = document.getElementById('sheikhSubject');
+                    var message = document.getElementById('sheikhMessage');
+
+                    if (!name || !phone || !subject || !message) return;
+
+                    var nameVal = name.value.trim();
+                    var phoneVal = phone.value.trim();
+                    var subjectVal = subject.value.trim();
+                    var messageVal = message.value.trim();
+
+                    if (!nameVal || !phoneVal || !subjectVal || !messageVal) {
+                        form.reportValidity();
+                        return;
+                    }
+
+                    var fullMessage =
+                        '📩 *رسالة إلى الشيخ الدكتور جمعة سالم الأزهري*\n\n' +
+                        '👤 *الاسم:* ' + nameVal + '\n' +
+                        '📞 *الهاتف:* ' + phoneVal + '\n' +
+                        '📂 *نوع الرسالة:* ' + subjectVal + '\n\n' +
+                        '📝 *نص الرسالة:*\n' + messageVal + '\n\n' +
+                        '_تم الإرسال عبر صفحة "تواصل معنا"_';
+
+                    var url = 'https://wa.me/201017712000?text=' + encodeURIComponent(fullMessage);
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                    form.reset();
+                });
+            }
+        })();
+    </script>
+
+</body>
+
+</html>
