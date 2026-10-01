@@ -83,8 +83,24 @@ const HOME_PAGE_MAP = {
 
 // 1. library-card
 function tplLibrary(item) {
+    // خريطة الكلاسات حسب الصفحة
+    const CARD_CLASS = {
+        library: "library-card",
+        science: "science-card",
+        faith: "faith-card",
+        life: "self-card",
+        pulpit: "pulpit-card",
+        qa: "qa-card",
+        stories: "stories-card",
+        soul: "soul-card",
+        games: "games-card",
+        entertainment: "entertainment-card"
+    };
+    const page = detectPageName();
+    const cls = CARD_CLASS[page] || "library-card";
+
     return `
-    <article class="library-card">
+    <article class="${cls}">
       <span class="icon">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
           <path d="M4 19V5a2 2 0 012-2h11l3 3v13a2 2 0 01-2 2H6a2 2 0 01-2-2z" />
