@@ -2628,3 +2628,198 @@ footer.site-footer {
         gap: 2px;
     }
 }
+
+/*******************************************/
+/* ============================================================
+   ستايلات صفحة الصوتيات (audios.html)
+   ============================================================ */
+
+/* ===== شبكة الصوتيات ===== */
+.audios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+@media (max-width: 900px) {
+    .audios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .audios-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== كارت الصوت ===== */
+.audios-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.audios-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--line-gold);
+}
+
+/* ===== صورة/غلاف الصوت ===== */
+.audio-thumb {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: linear-gradient(160deg, var(--navy-800), var(--navy-900));
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* خلفية زخرفية */
+.audio-thumb::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.8' opacity='0.15'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 80px 80px;
+    z-index: 1;
+}
+
+/* أيقونة الصوت في المنتصف */
+.audio-thumb .audio-icon-bg {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(212, 175, 55, .15);
+    border: 2px solid var(--gold-500);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: transform .3s ease, background .3s ease;
+}
+
+.audios-card:hover .audio-thumb .audio-icon-bg {
+    transform: scale(1.1);
+    background: rgba(212, 175, 55, .25);
+}
+
+.audio-thumb .audio-icon-bg svg {
+    width: 32px;
+    height: 32px;
+    stroke: var(--gold-500);
+}
+
+/* ===== iframe يوتيوب (لما يتضمن) ===== */
+.audio-thumb iframe {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* ===== شريط السلسلة (أعلى يمين) ===== */
+.audio-thumb .audio-series {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    background: var(--gold-500);
+    color: var(--navy-900);
+    font-family: var(--font-utility);
+    font-size: .7rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+}
+
+/* ===== مدة الصوت (أسفل يسار) ===== */
+.audio-thumb .audio-duration {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 2;
+    background: rgba(15, 23, 42, .8);
+    color: var(--gold-100);
+    font-family: var(--font-utility);
+    font-size: .72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    backdrop-filter: blur(4px);
+}
+
+/* ===== معلومات الصوت ===== */
+.audio-info {
+    padding: 18px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.audio-info h4 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy-900);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.audio-info p {
+    font-size: .85rem;
+    color: var(--navy-500);
+    line-height: 1.6;
+    flex: 1;
+    margin: 0;
+}
+
+.audio-info .meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+    font-family: var(--font-utility);
+    font-size: .8rem;
+    margin-top: auto;
+}
+
+.audio-info .meta .info {
+    color: var(--navy-300);
+    font-weight: 600;
+}
+
+.audio-info .meta .link {
+    color: var(--gold-700);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color .2s;
+}
+
+.audio-info .meta .link:hover {
+    color: var(--gold-500);
+}
+
+.audio-info .meta .link svg {
+    width: 13px;
+    height: 13px;
+    transition: transform .2s;
+}
+
+.audios-card:hover .audio-info .meta .link svg {
+    transform: translateX(-3px);
+}
