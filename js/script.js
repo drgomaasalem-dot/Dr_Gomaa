@@ -57,6 +57,44 @@
         }
     });
 
+
+
+    /***************************************************/
+
+    // ============================================================
+    //  إعدادات عامة
+    // ============================================================
+
+    // ===== الشريط الإخباري =====
+    // true  = إظهار الشريط
+    // false = إخفاء الشريط
+    var SHOW_TICKER = false;
+
+    // تنفيذ الإخفاء
+    (function () {
+        if (!SHOW_TICKER) {
+            // إخفاء الشريط
+            var tickerBar = document.querySelector('.ticker-bar');
+            if (tickerBar) {
+                tickerBar.style.display = 'none';
+            }
+
+            // إخفاء أي عنصر بـ id tickerTrack
+            var tickerTrack = document.getElementById('tickerTrack');
+            if (tickerTrack && tickerTrack.parentElement) {
+                // نطلع لفوق لحد ما نوصل للـ ticker-bar
+                var parent = tickerTrack;
+                while (parent && !parent.classList.contains('ticker-bar')) {
+                    parent = parent.parentElement;
+                }
+                if (parent) parent.style.display = 'none';
+            }
+
+            // إضافة class للـ body عشان نقدر نتحكم من CSS
+            document.documentElement.classList.add('ticker-hidden');
+        }
+    })();
+
     // ============================
     // 3. MEGA MENU (click toggle)
     // ============================
