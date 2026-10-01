@@ -10,15 +10,9 @@ import {
     updateDoc,
     deleteDoc,
     doc,
-    getDocs,
-    query,
-    where,
-    orderBy
+    getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// ============================================================
-// إعدادات
-// ============================================================
 const firebaseConfig = {
     apiKey: "AIzaSyBEUlp5MZW9imycaFHce9jb3wiKSbvcu3U",
     authDomain: "drgomaa-903b3.firebaseapp.com",
@@ -34,9 +28,30 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // ============================================================
-// أقسام كل صفحة (للقائمة المنسدلة الذكية)
+// هيكل الأقسام
 // ============================================================
 const SECTIONS = {
+    // ===== الصفحة الرئيسية =====
+    "home-pillars": [
+        { value: "pillars", label: "محاور المعرفة", badgeText: "", badgeClass: "", buttonText: "تصفح القسم" }
+    ],
+    "home-fatwa": [
+        { value: "fatwa", label: "بوابة الفتاوى", badgeText: "", badgeClass: "", buttonText: "قراءة الإجابة كاملة" }
+    ],
+    "home-videos": [
+        { value: "videos", label: "البرامج والمرئيات", badgeText: "", badgeClass: "", buttonText: "شاهد" }
+    ],
+    "home-programs": [
+        { value: "programs", label: "برامج المنصة", badgeText: "", badgeClass: "", buttonText: "استمع" }
+    ],
+    "home-verify": [
+        { value: "verify", label: "تحقق", badgeText: "", badgeClass: "", buttonText: "قراءة التحقيق" }
+    ],
+    "home-library": [
+        { value: "library", label: "المكتبة الرقمية", badgeText: "", badgeClass: "", buttonText: "تحميل مباشر" }
+    ],
+
+    // ===== باقي الصفحات =====
     library: [
         { value: "books", label: "الكتب", badgeText: "📖 كتاب", badgeClass: "book", buttonText: "تحميل" },
         { value: "summaries", label: "ملخصات الكتب", badgeText: "📋 ملخص", badgeClass: "summary", buttonText: "اقرأ" },
@@ -134,7 +149,6 @@ window.tryLogin = function () {
     }
 };
 
-// Enter للدخول
 document.getElementById("passwordInput").addEventListener("keypress", (e) => {
     if (e.key === "Enter") window.tryLogin();
 });
@@ -150,7 +164,6 @@ function showDashboard() {
     loadContent();
 }
 
-// فحص إذا كان مسجل دخول
 if (sessionStorage.getItem("admin_logged") === "true") {
     showDashboard();
 }
@@ -172,7 +185,7 @@ window.switchTab = function (tab) {
 };
 
 // ============================================================
-// القائمة المنسدلة الذكية (الصفحة → الأقسام)
+// القوائم المنسدلة
 // ============================================================
 const pageSelect = document.getElementById("fieldPage");
 const sectionSelect = document.getElementById("fieldSection");
@@ -198,20 +211,20 @@ pageSelect.addEventListener("change", () => {
     });
 });
 
-// ملء تلقائي لنص الزر حسب القسم
+// حفظ القيم تلقائي عند اختيار القسم
 sectionSelect.addEventListener("change", () => {
     const page = pageSelect.value;
     const section = sectionSelect.value;
     if (!page || !section) return;
 
-    const secData = SECTIONS[page].find(s => s.value === section);
-    if (secData && !currentEditId) {
-        document.getElementById("fieldButtonText").value = secData.buttonText;
-    }
+    const secData = SECTIONS[page]?.find(s => s.value === section);
+    if (!secData || currentEditId) return;
+
+    document.getElementById("fieldButtonText").value = secData.buttonText || "اقرأ";
 });
 
 // ============================================================
-// إضافة / تعديل محتوى
+// إضافة / تعديل
 // ============================================================
 const form = document.getElementById("contentForm");
 
@@ -230,7 +243,7 @@ form.addEventListener("submit", async (e) => {
     const meta = document.getElementById("fieldMeta").value.trim();
     const buttonText = document.getElementById("fieldButtonText").value.trim() || "اقرأ";
 
-    // جلب badgeText و badgeClass من القسم المختار
+    // جلب badgeText و badgeClass من القسم
     const secData = SECTIONS[page]?.find(s => s.value === section) || {};
     const badgeText = secData.badgeText || "📌 عنصر";
     const badgeClass = secData.badgeClass || "article";
@@ -241,12 +254,10 @@ form.addEventListener("submit", async (e) => {
 
     try {
         if (currentEditId) {
-            // تعديل
             await updateDoc(doc(db, "content", currentEditId), data);
             showToast("✅ تم تعديل المحتوى بنجاح", "success");
             cancelEdit();
         } else {
-            // إضافة جديدة
             await addDoc(collection(db, "content"), data);
             showToast("✅ تمت إضافة المحتوى بنجاح", "success");
             form.reset();
@@ -265,7 +276,7 @@ form.addEventListener("submit", async (e) => {
 });
 
 // ============================================================
-// تحميل المحتوى من Firebase
+// تحميل المحتوى
 // ============================================================
 async function loadContent() {
     const list = document.getElementById("contentList");
@@ -285,9 +296,6 @@ async function loadContent() {
     }
 }
 
-// ============================================================
-// عرض قائمة المحتوى
-// ============================================================
 window.renderList = function () {
     const list = document.getElementById("contentList");
     const filterPage = document.getElementById("filterPage").value;
@@ -331,7 +339,7 @@ window.renderList = function () {
 };
 
 // ============================================================
-// تعديل عنصر
+// تعديل
 // ============================================================
 window.editItem = function (id) {
     const item = allContent.find(i => i.id === id);
@@ -371,7 +379,7 @@ window.cancelEdit = function () {
 };
 
 // ============================================================
-// حذف عنصر
+// حذف
 // ============================================================
 window.deleteItem = async function (id, title) {
     if (!confirm(`هل أنت متأكد من حذف:\n"${title}" ؟`)) return;
@@ -391,6 +399,7 @@ window.deleteItem = async function (id, title) {
 // ============================================================
 function getPageLabel(page) {
     const map = {
+        "home-library": "المكتبة الرقمية (الرئيسية)",
         library: "مكتبة المعرفة",
         faith: "الإيمان",
         science: "العلم",
