@@ -245,12 +245,8 @@ const SECTION_TEMPLATES = {
 // ============================================================
 function cleanContainer(sectionEl) {
     const container =
-        sectionEl.querySelector(".library-grid") ||
-        sectionEl.querySelector(".pillars-grid") ||
-        sectionEl.querySelector(".fatwa-list") ||
-        sectionEl.querySelector(".video-grid") ||
-        sectionEl.querySelector(".videos-grid") ||
-        sectionEl.querySelector(".audios-grid");
+        sectionEl.querySelector('[class*="-grid"]') ||
+        sectionEl.querySelector('.fatwa-list');
     if (!container) return null;
     container.innerHTML = "";
     return container;
