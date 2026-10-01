@@ -518,45 +518,9 @@
     </footer>
 
     <!-- ===== JS ===== -->
+    <!-- ===== JS ===== -->
     <script src="js/script.js"></script>
-
-    <!-- ===== تحميل المحتوى الديناميكي ===== -->
-    <script type="module">
-        import { loadIssues } from './js/firebase-content.js';
-
-        // دالة عرض حالة الفراغ
-        window.showIssuesEmptyState = function (container) {
-            container.innerHTML =
-                '<div class="issues-empty">' +
-                '<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">' +
-                '<circle cx="12" cy="12" r="9" />' +
-                '<path d="M12 8v4M12 16h.01" />' +
-                '</svg>' +
-                '<p>لا يوجد محتوى حالياً، سيتم إضافة المحتوى قريباً بإذن الله</p>' +
-                '</div>';
-        };
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // تعريف الأقسام
-            var sections = [
-                { id: 'issuesIntellectual', category: 'intellectual' },
-                { id: 'issuesSocial', category: 'social' },
-                { id: 'issuesEducational', category: 'educational' },
-                { id: 'issuesYouth', category: 'youth' }
-            ];
-
-            // عرض حالة التحميل لكل قسم
-            sections.forEach(function (section) {
-                var container = document.getElementById(section.id);
-                if (container) {
-                    container.innerHTML = '<div class="issues-loading">جاري تحميل المحتوى...</div>';
-                }
-            });
-
-            // تحميل المحتوى من Firebase
-            loadIssues(sections);
-        });
-    </script>
+    <script type="module" src="js/firebase-content.js"></script>
 
 </body>
 
