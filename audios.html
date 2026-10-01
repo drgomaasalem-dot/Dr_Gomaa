@@ -480,21 +480,19 @@
             audioCards.forEach(function (card) {
                 var videoId = card.getAttribute('data-youtube');
                 var thumb = card.querySelector('.audio-thumb');
-                if (thumb && videoId) {
-                    // نتأكد إن videoId مش placeholder
-                    if (videoId.indexOf('AUDIO_') === 0) {
-                        // لو placeholder، منضيفش iframe
-                        return;
-                    }
-                    var iframe = document.createElement('iframe');
-                    iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?rel=0';
-                    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-                    iframe.setAttribute('allowfullscreen', '');
-                    iframe.setAttribute('frameborder', '0');
-                    iframe.loading = 'lazy';
-                    thumb.appendChild(iframe);
-                    thumb.classList.add('is-playing');
-                }
+                if (!thumb || !videoId) return;
+
+                // نتأكد إن videoId مش placeholder
+                if (videoId.indexOf('AUDIO_') === 0) return;
+                if (videoId.indexOf('VIDEO_') === 0) return;
+
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?rel=0';
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+                iframe.setAttribute('allowfullscreen', '');
+                iframe.setAttribute('frameborder', '0');
+                iframe.loading = 'lazy';
+                thumb.appendChild(iframe);
             });
         })();
     </script>
