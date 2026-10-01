@@ -244,7 +244,6 @@ const SECTION_TEMPLATES = {
 // مسح الكروت الثابتة
 // ============================================================
 function cleanContainer(sectionEl) {
-    // يبحث عن أي عنصر فيه "-grid" في الكلاس، أو fatwa-list
     const container =
         sectionEl.querySelector('[class*="-grid"]') ||
         sectionEl.querySelector('.fatwa-list');
