@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | العلم والإيمان والحياة</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700;800&family=Cairo:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --navy-900: #0f172a;
+            --navy-800: #152238;
+            --navy-700: #1e293b;
+            --navy-500: #475569;
+            --navy-300: #94a3b8;
+            --gold-700: #a3813f;
+            --gold-600: #c5a059;
+            --gold-500: #d4af37;
+            --gold-200: #f0e2bd;
+            --gold-100: #f9f4e6;
+            --white: #ffffff;
+            --bg-soft: #f8fafc;
+            --line: rgba(15, 23, 42, .09);
+            --line-gold: rgba(197, 160, 89, .35);
+            --green: #22c55e;
+            --red: #dc3545;
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Tajawal', system-ui, sans-serif;
+            background: var(--bg-soft);
+            color: var(--navy-700);
+            line-height: 1.7;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Amiri', serif;
+            color: var(--navy-900);
+        }
+
+        /* ===== شاشة الدخول ===== */
+        #loginScreen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+
+        .login-box {
+            background: var(--white);
+            border: 1px solid var(--line-gold);
+            border-radius: var(--radius-lg);
+            padding: 48px 40px;
+            max-width: 440px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, .08);
+            text-align: center;
+        }
+
+        .login-box .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: linear-gradient(150deg, var(--gold-100), var(--gold-200));
+            border: 2px solid var(--gold-500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+        }
+
+        .login-box h1 {
+            font-size: 1.7rem;
+            margin-bottom: 8px;
+        }
+
+        .login-box p {
+            color: var(--navy-500);
+            margin-bottom: 28px;
+            font-size: .95rem;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--line);
+            border-radius: var(--radius-sm);
+            font-size: 1rem;
+            text-align: center;
+            font-family: inherit;
+            transition: border-color .2s;
+            margin-bottom: 16px;
+        }
+
+        .login-box input:focus {
+            outline: none;
+            border-color: var(--gold-500);
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--gold-500), var(--gold-700));
+            color: var(--navy-900);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'Cairo', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform .2s;
+        }
+
+        .login-box button:hover {
+            transform: translateY(-2px);
+        }
+
+        .login-error {
+            color: var(--red);
+            font-size: .85rem;
+            margin-top: 12px;
+            display: none;
+        }
+
+        /* ===== لوحة التحكم ===== */
+        #dashboardScreen {
+            display: none;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .dashboard-header {
+            background: linear-gradient(160deg, var(--navy-900), var(--navy-800));
+            color: var(--gold-100);
+            padding: 24px 32px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 30px;
+            border: 1px solid var(--gold-500);
+        }
+
+        .dashboard-header h1 {
+            color: var(--white);
+            font-size: 1.4rem;
+            margin: 0;
+        }
+
+        .dashboard-header .subtitle {
+            color: var(--gold-200);
+            font-size: .85rem;
+            opacity: .85;
+        }
+
+        .logout-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(212, 175, 55, .4);
+            color: var(--gold-200);
+            border-radius: var(--radius-sm);
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: .85rem;
+            cursor: pointer;
+            transition: all .2s;
+        }
+
+        .logout-btn:hover {
+            background: var(--gold-500);
+            color: var(--navy-900);
+        }
+
+        /* ===== التبويبات ===== */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            background: var(--white);
+            padding: 6px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px 18px;
+            background: transparent;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: .95rem;
+            color: var(--navy-500);
+            cursor: pointer;
+            transition: all .2s;
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--gold-500), var(--gold-700));
+            color: var(--navy-900);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ===== الفورم ===== */
+        .form-card {
+            background: var(--white);
+            border: 1px solid var(--line-gold);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, .05);
+        }
+
+        .form-card h2 {
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+        }
+
+        .form-card .form-subtitle {
+            color: var(--navy-500);
+            font-size: .9rem;
+            margin-bottom: 26px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: .9rem;
+            color: var(--navy-800);
+            margin-bottom: 6px;
+        }
+
+        .form-group label .req {
+            color: var(--red);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px 16px;
+            border: 2px solid var(--line);
+            border-radius: var(--radius-sm);
+            font-size: .95rem;
+            font-family: inherit;
+            background: var(--bg-soft);
+            color: var(--navy-800);
+            transition: border-color .2s, background .2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold-500);
+            background: var(--white);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-submit {
+            flex: 1;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--gold-500), var(--gold-700));
+            color: var(--navy-900);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'Cairo', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(197, 160, 89, .3);
+        }
+
+        .btn-submit:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-cancel {
+            padding: 16px 24px;
+            background: var(--bg-soft);
+            color: var(--navy-700);
+            border: 2px solid var(--line);
+            border-radius: var(--radius-sm);
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            display: none;
+        }
+
+        /* ===== قائمة المحتوى ===== */
+        .content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-bar select {
+            padding: 10px 14px;
+            border: 2px solid var(--line);
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: .9rem;
+            background: var(--white);
+        }
+
+        .item-card {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .item-card:hover {
+            border-color: var(--line-gold);
+            box-shadow: 0 6px 20px rgba(15, 23, 42, .06);
+        }
+
+        .item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .item-info .badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .item-info .badge {
+            font-family: 'Cairo', sans-serif;
+            font-size: .7rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+            background: var(--gold-100);
+            color: var(--gold-700);
+            border: 1px solid var(--line-gold);
+        }
+
+        .item-info h3 {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--navy-900);
+            margin-bottom: 4px;
+        }
+
+        .item-info p {
+            font-size: .85rem;
+            color: var(--navy-500);
+            margin-bottom: 8px;
+        }
+
+        .item-info .item-url {
+            font-size: .75rem;
+            color: var(--navy-300);
+            word-break: break-all;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .item-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .item-actions button {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: .8rem;
+            cursor: pointer;
+            border: none;
+            transition: all .2s;
+            white-space: nowrap;
+        }
+
+        .btn-edit {
+            background: var(--gold-100);
+            color: var(--gold-700);
+            border: 1px solid var(--line-gold);
+        }
+
+        .btn-edit:hover {
+            background: var(--gold-500);
+            color: var(--navy-900);
+        }
+
+        .btn-delete {
+            background: #fee2e2;
+            color: var(--red);
+            border: 1px solid #fecaca;
+        }
+
+        .btn-delete:hover {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--navy-300);
+        }
+
+        .empty-state .icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            opacity: .4;
+        }
+
+        /* ===== رسائل ===== */
+        .toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: var(--navy-900);
+            color: var(--gold-100);
+            padding: 14px 28px;
+            border-radius: 999px;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 700;
+            font-size: .9rem;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, .2);
+            z-index: 9999;
+            opacity: 0;
+            transition: all .3s;
+            border: 1px solid var(--gold-500);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .toast.success {
+            background: var(--green);
+            color: var(--white);
+            border-color: var(--green);
+        }
+
+        .toast.error {
+            background: var(--red);
+            color: var(--white);
+            border-color: var(--red);
+        }
+
+        /* ===== تحميل ===== */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--navy-300);
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto 14px;
+            border: 3px solid var(--line);
+            border-top-color: var(--gold-500);
+            border-radius: 50%;
+            animation: spin .8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ===== موبايل ===== */
+        @media (max-width: 700px) {
+            body {
+                padding: 12px;
+            }
+
+            .login-box {
+                padding: 32px 22px;
+            }
+
+            .dashboard-header {
+                padding: 20px;
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .form-card {
+                padding: 22px 18px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .item-card {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .item-actions {
+                flex-direction: row;
+            }
+
+            .item-actions button {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== شاشة الدخول ===== -->
+    <div id="loginScreen">
+        <div class="login-box">
+            <div class="icon">🔐</div>
+            <h1>لوحة التحكم</h1>
+            <p>منصة العلم والإيمان والحياة</p>
+            <input type="password" id="passwordInput" placeholder="أدخل كلمة السر" autocomplete="off">
+            <button onclick="tryLogin()">دخول</button>
+            <div class="login-error" id="loginError">❌ كلمة السر غير صحيحة</div>
+        </div>
+    </div>
+
+    <!-- ===== لوحة التحكم ===== -->
+    <div id="dashboardScreen">
+
+        <div class="dashboard-header">
+            <div>
+                <h1>📋 لوحة إدارة المحتوى</h1>
+                <div class="subtitle">إضافة وتعديل وحذف محتوى الموقع</div>
+            </div>
+            <button class="logout-btn" onclick="logout()">🚪 خروج</button>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('add')">➕ إضافة محتوى</button>
+            <button class="tab-btn" onclick="switchTab('list')">📚 عرض المحتوى</button>
+        </div>
+
+        <!-- ===== تبويب الإضافة ===== -->
+        <div class="tab-content active" id="tab-add">
+            <div class="form-card">
+                <h2 id="formTitle">➕ إضافة محتوى جديد</h2>
+                <p class="form-subtitle">املأ البيانات التالية وسيظهر المحتوى على الموقع تلقائياً</p>
+
+                <form id="contentForm">
+                    <input type="hidden" id="editId">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>الصفحة <span class="req">*</span></label>
+                            <select id="fieldPage" required>
+                                <option value="">اختر الصفحة...</option>
+                                <option value="library">مكتبة المعرفة</option>
+                                <option value="faith">الإيمان</option>
+                                <option value="science">العلم</option>
+                                <option value="life">الحياة</option>
+                                <option value="pulpit">منبر الجمعة</option>
+                                <option value="qa">سؤال وجواب</option>
+                                <option value="stories">قصص ودروس وعبر</option>
+                                <option value="soul">حديث الروح</option>
+                                <option value="videos">مرئيات المنصة</option>
+                                <option value="audios">صوتيات</option>
+                                <option value="games">مسابقات وألغاز</option>
+                                <option value="entertainment">ترفيه هادف</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>القسم <span class="req">*</span></label>
+                            <select id="fieldSection" required disabled>
+                                <option value="">اختر الصفحة أولاً...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group full" style="margin-bottom: 18px;">
+                        <label>العنوان <span class="req">*</span></label>
+                        <input type="text" id="fieldTitle" placeholder="مثال: يقين القلب" required>
+                    </div>
+
+                    <div class="form-group full" style="margin-bottom: 18px;">
+                        <label>الوصف <span class="req">*</span></label>
+                        <textarea id="fieldDescription" placeholder="وصف قصير للعنصر..." required></textarea>
+                    </div>
+
+                    <div class="form-group full" style="margin-bottom: 18px;">
+                        <label>الرابط <span class="req">*</span></label>
+                        <input type="url" id="fieldUrl" placeholder="https://..." required
+                            style="direction: ltr; text-align: left;">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>التفاصيل (meta)</label>
+                            <input type="text" id="fieldMeta" placeholder="مثال: ١٨٠ صفحة أو ٨ دقائق">
+                        </div>
+                        <div class="form-group">
+                            <label>نص الزر</label>
+                            <input type="text" id="fieldButtonText" placeholder="اقرأ / تحميل / شاهد" value="اقرأ">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit" id="submitBtn">✅ إضافة المحتوى</button>
+                        <button type="button" class="btn-cancel" id="cancelBtn" onclick="cancelEdit()">إلغاء
+                            التعديل</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- ===== تبويب العرض ===== -->
+        <div class="tab-content" id="tab-list">
+            <div class="form-card">
+                <h2>📚 المحتوى الحالي</h2>
+                <p class="form-subtitle">يمكنك تعديل أو حذف أي عنصر</p>
+
+                <div class="filter-bar">
+                    <select id="filterPage" onchange="renderList()">
+                        <option value="">كل الصفحات</option>
+                        <option value="library">مكتبة المعرفة</option>
+                        <option value="faith">الإيمان</option>
+                        <option value="science">العلم</option>
+                        <option value="life">الحياة</option>
+                        <option value="pulpit">منبر الجمعة</option>
+                        <option value="qa">سؤال وجواب</option>
+                        <option value="stories">قصص ودروس وعبر</option>
+                        <option value="soul">حديث الروح</option>
+                        <option value="videos">مرئيات المنصة</option>
+                        <option value="audios">صوتيات</option>
+                        <option value="games">مسابقات وألغاز</option>
+                        <option value="entertainment">ترفيه هادف</option>
+                    </select>
+                </div>
+
+                <div id="contentList" class="content-list">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        جاري التحميل...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ===== Toast ===== -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ===== Firebase Admin JS ===== -->
+    <script type="module" src="js/admin.js"></script>
+
+</body>
+
+</html>
