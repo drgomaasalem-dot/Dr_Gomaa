@@ -108,7 +108,8 @@
             font-size: 1rem;
             text-align: center;
             font-family: inherit;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
+            direction: ltr;
         }
 
         .login-box input:focus {
@@ -127,6 +128,17 @@
             font-weight: 800;
             font-size: 1rem;
             cursor: pointer;
+            transition: transform .2s;
+        }
+
+        .login-box button:hover {
+            transform: translateY(-2px);
+        }
+
+        .login-box button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .login-error {
@@ -578,9 +590,10 @@
             <div class="icon">🔐</div>
             <h1>لوحة التحكم</h1>
             <p>منصة العلم والإيمان والحياة</p>
-            <input type="password" id="passwordInput" placeholder="أدخل كلمة السر" autocomplete="off">
-            <button onclick="tryLogin()">دخول</button>
-            <div class="login-error" id="loginError">❌ كلمة السر غير صحيحة</div>
+            <input type="email" id="emailInput" placeholder="البريد الإلكتروني" autocomplete="username">
+            <input type="password" id="passwordInput" placeholder="كلمة السر" autocomplete="current-password">
+            <button onclick="tryLogin()" id="loginBtn">دخول</button>
+            <div class="login-error" id="loginError">❌ البريد الإلكتروني أو كلمة السر غير صحيحة</div>
         </div>
     </div>
 

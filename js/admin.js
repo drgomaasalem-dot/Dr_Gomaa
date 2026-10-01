@@ -1,5 +1,5 @@
 // ============================================================
-// admin.js - لوحة إدارة المحتوى
+// admin.js - لوحة إدارة المحتوى (مع Firebase Authentication)
 // ============================================================
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -12,7 +12,16 @@ import {
     doc,
     getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import {
+    getAuth,
+    signInWithEmailAndPassword,
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
+// ============================================================
+// إعدادات Firebase
+// ============================================================
 const firebaseConfig = {
     apiKey: "AIzaSyBEUlp5MZW9imycaFHce9jb3wiKSbvcu3U",
     authDomain: "drgomaa-903b3.firebaseapp.com",
@@ -22,10 +31,9 @@ const firebaseConfig = {
     appId: "1:792008022548:web:826701ea589f07be38e501"
 };
 
-const PASSWORD = "gomaa2026";
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 // ============================================================
 // هيكل الأقسام
@@ -140,29 +148,62 @@ let allContent = [];
 let currentEditId = null;
 
 // ============================================================
-// تسجيل الدخول
+// تسجيل الدخول بـ Firebase Auth
 // ============================================================
-window.tryLogin = function () {
-    const input = document.getElementById("passwordInput");
+window.tryLogin = async function () {
+    const emailInput = document.getElementById("emailInput");
+    const passwordInput = document.getElementById("passwordInput");
     const error = document.getElementById("loginError");
-    if (input.value === PASSWORD) {
-        sessionStorage.setItem("admin_logged", "true");
-        showDashboard();
-    } else {
+    const loginBtn = document.getElementById("loginBtn");
+
+    if (!emailInput || !passwordInput) return;
+
+    const email = emailInput.value.trim();
+    const password = passwordInput.value;
+
+    if (!email || !password) {
         error.style.display = "block";
-        input.value = "";
-        input.focus();
+        error.textContent = "❌ من فضلك املأ البريد وكلمة السر";
         setTimeout(() => { error.style.display = "none"; }, 3000);
+        return;
+    }
+
+    loginBtn.disabled = true;
+    loginBtn.textContent = "⏳ جاري الدخول...";
+
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+        // النجاح — onAuthStateChanged هيتكفل بالباقي
+    } catch (err) {
+        console.error("Login error:", err);
+        error.style.display = "block";
+        error.textContent = "❌ البريد الإلكتروني أو كلمة السر غير صحيحة";
+        passwordInput.value = "";
+        setTimeout(() => { error.style.display = "none"; }, 4000);
+    } finally {
+        loginBtn.disabled = false;
+        loginBtn.textContent = "دخول";
     }
 };
 
-document.getElementById("passwordInput").addEventListener("keypress", (e) => {
-    if (e.key === "Enter") window.tryLogin();
+// Enter للدخول
+document.addEventListener("DOMContentLoaded", () => {
+    const pwd = document.getElementById("passwordInput");
+    if (pwd) {
+        pwd.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") window.tryLogin();
+        });
+    }
 });
 
-window.logout = function () {
-    sessionStorage.removeItem("admin_logged");
-    location.reload();
+window.logout = async function () {
+    try {
+        await signOut(auth);
+        location.reload();
+    } catch (err) {
+        console.error("Logout error:", err);
+        location.reload();
+    }
 };
 
 function showDashboard() {
@@ -171,9 +212,21 @@ function showDashboard() {
     loadContent();
 }
 
-if (sessionStorage.getItem("admin_logged") === "true") {
-    showDashboard();
-}
+// ============================================================
+// مراقبة حالة تسجيل الدخول
+// ============================================================
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // مسجل دخول ✅
+        console.log("✅ Logged in as:", user.email);
+        showDashboard();
+    } else {
+        // مش مسجل
+        console.log("⛔ Not logged in");
+        document.getElementById("loginScreen").style.display = "flex";
+        document.getElementById("dashboardScreen").style.display = "none";
+    }
+});
 
 // ============================================================
 // التبويبات
