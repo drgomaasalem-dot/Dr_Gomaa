@@ -52,181 +52,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-        /* تخصيص صفحة صوتيات */
-        .audios-hero {
-            padding-block: 60px 80px;
-            background: linear-gradient(160deg, var(--navy-900), var(--navy-800));
-            color: var(--gold-100);
-        }
 
-        .audios-hero .section-head h2 {
-            color: var(--white);
-        }
-
-        .audios-hero .section-head p {
-            color: var(--gold-200);
-            opacity: .8;
-        }
-
-        .audios-hero .eyebrow {
-            background: rgba(212, 175, 55, .15);
-            border-color: var(--gold-500);
-            color: var(--gold-500);
-        }
-
-        .audios-hero .eyebrow::before {
-            background: var(--gold-500);
-        }
-
-        .audios-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        @media (max-width: 900px) {
-            .audios-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 560px) {
-            .audios-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .audios-card {
-            background: var(--white);
-            border: 1px solid var(--line);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: transform .3s, box-shadow .3s;
-        }
-
-        .audios-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .audio-thumb {
-            position: relative;
-            aspect-ratio: 16/9;
-            background-color: var(--navy-900);
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .audio-thumb .audio-icon-bg {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: rgba(212, 175, 55, .15);
-            border: 2px solid var(--gold-500);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-        }
-
-        .audio-thumb .audio-icon-bg svg {
-            width: 40px;
-            height: 40px;
-            stroke: var(--gold-500);
-        }
-
-        .audio-thumb iframe {
-            position: absolute;
-            inset: 0;
-            z-index: 3;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        .audio-thumb .audio-series {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 2;
-            background: var(--gold-500);
-            color: var(--navy-900);
-            font-family: var(--font-utility);
-            font-size: .68rem;
-            font-weight: 800;
-            padding: 4px 10px;
-            border-radius: 6px;
-        }
-
-        .audio-thumb .audio-duration {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            z-index: 2;
-            background: rgba(15, 23, 42, .75);
-            color: var(--gold-100);
-            font-family: var(--font-utility);
-            font-size: .72rem;
-            font-weight: 700;
-            padding: 4px 9px;
-            border-radius: 6px;
-        }
-
-        .audio-info {
-            padding: 16px 16px 20px;
-        }
-
-        .audio-info h4 {
-            font-family: var(--font-body);
-            font-size: .98rem;
-            font-weight: 700;
-            color: var(--navy-900);
-            margin-bottom: 6px;
-        }
-
-        .audio-info p {
-            font-size: .82rem;
-            color: var(--navy-500);
-        }
-
-        .audio-info .meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-top: 12px;
-            border-top: 1px dashed var(--line);
-            font-family: var(--font-utility);
-            font-size: .8rem;
-            margin-top: 8px;
-        }
-
-        .audio-info .meta .info {
-            color: var(--navy-300);
-        }
-
-        .audio-info .meta .link {
-            color: var(--gold-700);
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .audios-intro {
-            max-width: 780px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .audios-intro p {
-            color: var(--navy-500);
-            font-size: 1.05rem;
-        }
     </style>
 </head>
 
@@ -655,6 +481,11 @@
                 var videoId = card.getAttribute('data-youtube');
                 var thumb = card.querySelector('.audio-thumb');
                 if (thumb && videoId) {
+                    // نتأكد إن videoId مش placeholder
+                    if (videoId.indexOf('AUDIO_') === 0) {
+                        // لو placeholder، منضيفش iframe
+                        return;
+                    }
                     var iframe = document.createElement('iframe');
                     iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?rel=0';
                     iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
@@ -662,6 +493,7 @@
                     iframe.setAttribute('frameborder', '0');
                     iframe.loading = 'lazy';
                     thumb.appendChild(iframe);
+                    thumb.classList.add('is-playing');
                 }
             });
         })();

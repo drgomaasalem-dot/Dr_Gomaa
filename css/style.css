@@ -2631,14 +2631,51 @@ footer.site-footer {
 
 /*******************************************/
 /* ============================================================
-   ستايلات صفحة الصوتيات (audios.html)
+   صفحة الصوتيات (audios.html)
    ============================================================ */
+
+/* ===== الهيرو ===== */
+.audios-hero {
+    padding-block: 60px 80px;
+    background: linear-gradient(160deg, var(--navy-900), var(--navy-800));
+    color: var(--gold-100);
+}
+
+.audios-hero .section-head h2 {
+    color: var(--white);
+}
+
+.audios-hero .section-head p {
+    color: var(--gold-200);
+    opacity: .8;
+}
+
+.audios-hero .eyebrow {
+    background: rgba(212, 175, 55, .15);
+    border-color: var(--gold-500);
+    color: var(--gold-500);
+}
+
+.audios-hero .eyebrow::before {
+    background: var(--gold-500);
+}
+
+.audios-intro {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.audios-intro p {
+    color: var(--navy-500);
+    font-size: 1.05rem;
+}
 
 /* ===== شبكة الصوتيات ===== */
 .audios-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 22px;
+    gap: 24px;
 }
 
 @media (max-width: 900px) {
@@ -2663,15 +2700,16 @@ footer.site-footer {
     transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .audios-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
     box-shadow: var(--shadow-md);
     border-color: var(--line-gold);
 }
 
-/* ===== صورة/غلاف الصوت ===== */
+/* ===== غلاف الصوت ===== */
 .audio-thumb {
     position: relative;
     aspect-ratio: 16/9;
@@ -2680,22 +2718,23 @@ footer.site-footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
-/* خلفية زخرفية */
+/* زخرفة خلفية */
 .audio-thumb::before {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.8' opacity='0.15'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d4af37' stroke-width='0.8' opacity='0.18'%3E%3Ccircle cx='40' cy='40' r='30'/%3E%3Ccircle cx='40' cy='40' r='20'/%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3Cpath d='M40 10v60M10 40h60'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 80px 80px;
     z-index: 1;
 }
 
-/* أيقونة الصوت في المنتصف */
+/* أيقونة الصوت */
 .audio-thumb .audio-icon-bg {
-    width: 70px;
-    height: 70px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     background: rgba(212, 175, 55, .15);
     border: 2px solid var(--gold-500);
@@ -2704,20 +2743,30 @@ footer.site-footer {
     justify-content: center;
     z-index: 2;
     transition: transform .3s ease, background .3s ease;
+    position: relative;
 }
 
 .audios-card:hover .audio-thumb .audio-icon-bg {
     transform: scale(1.1);
-    background: rgba(212, 175, 55, .25);
+    background: rgba(212, 175, 55, .28);
 }
 
 .audio-thumb .audio-icon-bg svg {
-    width: 32px;
-    height: 32px;
+    width: 34px;
+    height: 34px;
     stroke: var(--gold-500);
 }
 
-/* ===== iframe يوتيوب (لما يتضمن) ===== */
+/* إخفاء الأيقونة لما iframe يتضمن */
+.audio-thumb.is-playing .audio-icon-bg {
+    display: none;
+}
+
+.audio-thumb.is-playing::before {
+    display: none;
+}
+
+/* iframe يوتيوب */
 .audio-thumb iframe {
     position: absolute;
     inset: 0;
@@ -2727,27 +2776,27 @@ footer.site-footer {
     border: 0;
 }
 
-/* ===== شريط السلسلة (أعلى يمين) ===== */
+/* شريط السلسلة */
 .audio-thumb .audio-series {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 12px;
+    right: 12px;
     z-index: 2;
     background: var(--gold-500);
     color: var(--navy-900);
     font-family: var(--font-utility);
     font-size: .7rem;
     font-weight: 800;
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 6px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, .2);
 }
 
-/* ===== مدة الصوت (أسفل يسار) ===== */
+/* مدة الصوت */
 .audio-thumb .audio-duration {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 12px;
+    left: 12px;
     z-index: 2;
     background: rgba(15, 23, 42, .8);
     color: var(--gold-100);
@@ -2761,10 +2810,10 @@ footer.site-footer {
 
 /* ===== معلومات الصوت ===== */
 .audio-info {
-    padding: 18px 18px 20px;
+    padding: 20px 20px 22px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
     flex: 1;
 }
 
@@ -2773,16 +2822,21 @@ footer.site-footer {
     font-size: 1rem;
     font-weight: 700;
     color: var(--navy-900);
-    line-height: 1.4;
     margin: 0;
+    line-height: 1.5;
+    transition: color .2s;
+}
+
+.audios-card:hover .audio-info h4 {
+    color: var(--gold-700);
 }
 
 .audio-info p {
     font-size: .85rem;
     color: var(--navy-500);
     line-height: 1.6;
-    flex: 1;
     margin: 0;
+    flex: 1;
 }
 
 .audio-info .meta {
