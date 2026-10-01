@@ -1,5 +1,5 @@
 // ============================================================
-// firebase-content.js - Universal Auto Loader
+// firebase-content.js - Universal Auto Loader + Cleaner + Ticker
 // ============================================================
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -33,7 +33,40 @@ function detectPageName() {
 }
 
 // ============================================================
-// الأقسام اللي في الصفحة الرئيسية (لها أسماء خاصة)
+// أقسام الفيديو والصوت (هتستخدم iframe)
+// ============================================================
+const MEDIA_SECTIONS = [
+    "episodes", "shorts", "interviews", "live",
+    "home-videos",
+    "lectures", "lessons", "selected",
+    "videos"
+];
+
+function isMediaSection(sectionName) {
+    return MEDIA_SECTIONS.includes(sectionName);
+}
+
+// ============================================================
+// استخراج YouTube ID من أي صيغة
+// ============================================================
+function extractYouTubeId(raw) {
+    if (!raw) return null;
+    raw = raw.trim();
+    if (/^[a-zA-Z0-9_-]{11}$/.test(raw)) return raw;
+
+    const patterns = [
+        /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/,
+        /[?&]v=([a-zA-Z0-9_-]{11})/
+    ];
+    for (const p of patterns) {
+        const m = raw.match(p);
+        if (m) return m[1];
+    }
+    return null;
+}
+
+// ============================================================
+// الأقسام في الصفحة الرئيسية
 // ============================================================
 const HOME_PAGE_MAP = {
     "pillars": "home-pillars",
@@ -48,7 +81,7 @@ const HOME_PAGE_MAP = {
 // القوالب
 // ============================================================
 
-// 1. library-card (المكتبة العادية)
+// 1. library-card
 function tplLibrary(item) {
     return `
     <article class="library-card">
@@ -74,14 +107,13 @@ function tplLibrary(item) {
   `;
 }
 
-// 2. book-card (المكتبة الرقمية في الرئيسية)
+// 2. book-card
 function tplBook(item) {
     const bt = item.buttonText || "تحميل مباشر";
     const isDl = bt.includes("تحميل");
     const icon = isDl
         ? '<path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" />'
         : '<path d="M15 6l-6 6 6 6" />';
-
     return `
     <article class="book-card">
       <span class="book-cover">
@@ -101,7 +133,7 @@ function tplBook(item) {
   `;
 }
 
-// 3. pillar-card (محاور المعرفة + برامج المنصة)
+// 3. pillar-card
 function tplPillar(item) {
     const icon = item.icon || '<path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />';
     return `
@@ -124,13 +156,12 @@ function tplPillar(item) {
   `;
 }
 
-// 4. fatwa-item (الفتاوى + تحقق)
+// 4. fatwa-item
 function tplFatwa(item) {
-    const cat = item.meta || item.badgeText || "سؤال";
     return `
     <article class="fatwa-item">
       <div class="badge-row">
-        <span class="cat">${cat}</span>
+        <span class="cat">${item.meta || item.badgeText || "سؤال"}</span>
         <time>${item.badgeText || ""}</time>
       </div>
       <h4>${item.title || ""}</h4>
@@ -145,13 +176,25 @@ function tplFatwa(item) {
   `;
 }
 
-// 5. video-card (المرئيات)
+// 5. video-card (مع iframe مضمّن)
 function tplVideo(item) {
+    const videoId = extractYouTubeId(item.url);
+    const iframe = videoId
+        ? `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}?rel=0"
+              title="${(item.title || '').replace(/"/g, '&quot;')}"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen loading="lazy" frameborder="0"
+              style="position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3"></iframe>`
+        : `<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#d4af37;background:#0f172a;z-index:3">
+         <span style="font-size:.9rem">⚠️ رابط الفيديو غير صحيح</span>
+       </div>`;
+
     return `
-    <article class="video-card" data-youtube="${item.url || ''}">
+    <article class="videos-card">
       <div class="video-thumb">
         <span class="video-series">${item.badgeText || ""}</span>
         <span class="video-duration">${item.meta || ""}</span>
+        ${iframe}
       </div>
       <div class="video-info">
         <h4>${item.title || ""}</h4>
@@ -161,40 +204,57 @@ function tplVideo(item) {
   `;
 }
 
+// 6. ticker-item (الشريط الإخباري)
+function tplTickerItem(item) {
+    return `<span><time>${item.meta || ""}</time> ${item.title || ""}</span>`;
+}
+
 // ============================================================
-// ربط القسم بالقالب المناسب
+// ربط اسم القسم بالقالب
 // ============================================================
 const SECTION_TEMPLATES = {
-    // library-card
-    "books": tplLibrary,
-    "summaries": tplLibrary,
-    "articles": tplLibrary,
-    "beneficial": tplLibrary,
-    // library.html عادي
-    "library": tplLibrary,
+    "books": tplLibrary, "summaries": tplLibrary, "articles": tplLibrary,
+    "beneficial": tplLibrary, "quran": tplLibrary, "hadith": tplLibrary,
+    "aqeedah": tplLibrary, "ethics": tplLibrary, "tazkiyah": tplLibrary,
+    "fiqh-life": tplLibrary, "culture": tplLibrary, "faith-science": tplLibrary,
+    "scholars": tplLibrary, "self": tplLibrary, "time": tplLibrary,
+    "procrastination": tplLibrary, "habits": tplLibrary, "goals": tplLibrary,
+    "confidence": tplLibrary, "written": tplLibrary,
+    "religious": tplLibrary, "life": tplLibrary, "audience": tplLibrary,
+    "history": tplLibrary, "real": tplLibrary, "prophets": tplLibrary,
+    "lessons": tplLibrary, "thoughts": tplLibrary, "letters": tplLibrary,
+    "heart": tplLibrary, "cultural": tplLibrary, "puzzle": tplLibrary,
+    "jokes": tplLibrary, "situations": tplLibrary, "smile": tplLibrary,
 
-    // book-card (الصفحة الرئيسية)
-    "home-library": tplBook,
+    "home-library": tplBook, "library": tplBook,
 
-    // pillar-card
-    "pillars": tplPillar,
-    "programs": tplPillar,
-    "home-pillars": tplPillar,
-    "home-programs": tplPillar,
+    "pillars": tplPillar, "programs": tplPillar,
+    "home-pillars": tplPillar, "home-programs": tplPillar,
 
-    // fatwa-item
-    "fatwa": tplFatwa,
-    "verify": tplFatwa,
-    "home-fatwa": tplFatwa,
-    "home-verify": tplFatwa,
-    "religious": tplFatwa,
-    "life-qa": tplFatwa,
-    "audience": tplFatwa,
+    "fatwa": tplFatwa, "verify": tplFatwa,
+    "home-fatwa": tplFatwa, "home-verify": tplFatwa,
 
-    // video-card
-    "videos": tplVideo,
-    "home-videos": tplVideo
+    "episodes": tplVideo, "shorts": tplVideo, "interviews": tplVideo, "live": tplVideo,
+    "videos": tplVideo, "home-videos": tplVideo,
+    "lectures": tplVideo, "lessons": tplVideo, "selected": tplVideo,
+    "audio": tplVideo, "video": tplVideo
 };
+
+// ============================================================
+// مسح الكروت الثابتة
+// ============================================================
+function cleanContainer(sectionEl) {
+    const container =
+        sectionEl.querySelector(".library-grid") ||
+        sectionEl.querySelector(".pillars-grid") ||
+        sectionEl.querySelector(".fatwa-list") ||
+        sectionEl.querySelector(".video-grid") ||
+        sectionEl.querySelector(".videos-grid") ||
+        sectionEl.querySelector(".audios-grid");
+    if (!container) return null;
+    container.innerHTML = "";
+    return container;
+}
 
 // ============================================================
 // تحميل قسم
@@ -229,66 +289,56 @@ async function loadSection(pageName, sectionName, container, tpl) {
 }
 
 // ============================================================
-
+// تحميل الشريط الإخباري
 // ============================================================
-// تنظيف الكروت الثابتة قبل تحميل المحتوى الجديد
-// ============================================================
-function clearStaticCards(sectionEl) {
-    // حدد الحاوية
-    const container =
-        sectionEl.querySelector(".library-grid") ||
-        sectionEl.querySelector(".pillars-grid") ||
-        sectionEl.querySelector(".fatwa-list") ||
-        sectionEl.querySelector(".video-grid");
+async function loadTicker() {
+    const tickerTrack = document.getElementById("tickerTrack");
+    if (!tickerTrack) return;
 
-    if (!container) return null;
+    try {
+        const q = query(
+            collection(db, "content"),
+            where("page", "==", "ticker"),
+            where("section", "==", "items")
+        );
+        const snap = await getDocs(q);
 
-    // امسح كل الكروت الثابتة
-    container.innerHTML = "";
+        if (snap.empty) return;
 
-    return container;
+        const items = snap.docs.map(d => d.data());
+        const html = items.map(tplTickerItem).join("");
+        tickerTrack.innerHTML = html + html;
+
+    } catch (err) {
+        console.error("خطأ في تحميل الشريط:", err);
+    }
 }
 
-
-
-
-
-
-
-
-
+// ============================================================
 // التشغيل التلقائي
 // ============================================================
 async function autoInit() {
+    // 1. الشريط الإخباري (في كل الصفحات)
+    await loadTicker();
+
+    // 2. محتوى الأقسام
     const pageName = detectPageName();
     const isHome = pageName === "index" || pageName === "";
 
-    // ابحث في كل sections اللي فيها حاويات كروت
     const sections = document.querySelectorAll("section[id]");
-
     for (const sectionEl of sections) {
         const sectionId = sectionEl.getAttribute("id");
-
-        // حدد الحاوية
-        const container = clearStaticCards(sectionEl);
+        const container = cleanContainer(sectionEl);
         if (!container) continue;
 
-        // حدد اسم الصفحة في Firebase
         let fbPage = pageName;
         let fbSection = sectionId;
 
         if (isHome && HOME_PAGE_MAP[sectionId]) {
             fbPage = HOME_PAGE_MAP[sectionId];
-            fbSection = sectionId;
         }
 
-        // حدد القالب
-        let tpl = SECTION_TEMPLATES[fbSection] || SECTION_TEMPLATES[sectionId];
-
-        // لو مفيش قالب محدد، استخدم library-card كافتراضي
-        if (!tpl) tpl = tplLibrary;
-
-        // جيب المحتوى
+        let tpl = SECTION_TEMPLATES[sectionId] || tplLibrary;
         await loadSection(fbPage, fbSection, container, tpl);
     }
 }

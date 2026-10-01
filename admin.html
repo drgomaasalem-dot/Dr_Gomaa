@@ -58,7 +58,6 @@
             color: var(--navy-900);
         }
 
-        /* ===== شاشة الدخول ===== */
         #loginScreen {
             display: flex;
             align-items: center;
@@ -109,7 +108,6 @@
             font-size: 1rem;
             text-align: center;
             font-family: inherit;
-            transition: border-color .2s;
             margin-bottom: 16px;
         }
 
@@ -129,11 +127,6 @@
             font-weight: 800;
             font-size: 1rem;
             cursor: pointer;
-            transition: transform .2s;
-        }
-
-        .login-box button:hover {
-            transform: translateY(-2px);
         }
 
         .login-error {
@@ -143,7 +136,6 @@
             display: none;
         }
 
-        /* ===== لوحة التحكم ===== */
         #dashboardScreen {
             display: none;
             max-width: 1000px;
@@ -186,7 +178,6 @@
             font-weight: 700;
             font-size: .85rem;
             cursor: pointer;
-            transition: all .2s;
         }
 
         .logout-btn:hover {
@@ -194,7 +185,6 @@
             color: var(--navy-900);
         }
 
-        /* ===== التبويبات ===== */
         .tabs {
             display: flex;
             gap: 8px;
@@ -217,7 +207,6 @@
             font-size: .95rem;
             color: var(--navy-500);
             cursor: pointer;
-            transition: all .2s;
             white-space: nowrap;
         }
 
@@ -234,7 +223,6 @@
             display: block;
         }
 
-        /* ===== الفورم ===== */
         .form-card {
             background: var(--white);
             border: 1px solid var(--line-gold);
@@ -292,7 +280,6 @@
             font-family: inherit;
             background: var(--bg-soft);
             color: var(--navy-800);
-            transition: border-color .2s, background .2s;
         }
 
         .form-group input:focus,
@@ -325,7 +312,6 @@
             font-weight: 800;
             font-size: 1rem;
             cursor: pointer;
-            transition: transform .2s, box-shadow .2s;
         }
 
         .btn-submit:hover {
@@ -336,7 +322,6 @@
         .btn-submit:disabled {
             opacity: .6;
             cursor: not-allowed;
-            transform: none;
         }
 
         .btn-cancel {
@@ -352,7 +337,6 @@
             display: none;
         }
 
-        /* ===== قائمة المحتوى ===== */
         .content-list {
             display: flex;
             flex-direction: column;
@@ -384,7 +368,6 @@
             justify-content: space-between;
             align-items: flex-start;
             gap: 16px;
-            transition: border-color .2s, box-shadow .2s;
         }
 
         .item-card:hover {
@@ -452,7 +435,6 @@
             font-size: .8rem;
             cursor: pointer;
             border: none;
-            transition: all .2s;
             white-space: nowrap;
         }
 
@@ -490,7 +472,6 @@
             opacity: .4;
         }
 
-        /* ===== رسائل ===== */
         .toast {
             position: fixed;
             top: 20px;
@@ -503,7 +484,6 @@
             font-family: 'Cairo', sans-serif;
             font-weight: 700;
             font-size: .9rem;
-            box-shadow: 0 10px 30px rgba(15, 23, 42, .2);
             z-index: 9999;
             opacity: 0;
             transition: all .3s;
@@ -527,7 +507,6 @@
             border-color: var(--red);
         }
 
-        /* ===== تحميل ===== */
         .loading {
             text-align: center;
             padding: 40px;
@@ -550,7 +529,6 @@
             }
         }
 
-        /* ===== موبايل ===== */
         @media (max-width: 700px) {
             body {
                 padding: 12px;
@@ -563,7 +541,6 @@
             .dashboard-header {
                 padding: 20px;
                 flex-direction: column;
-                align-items: stretch;
                 text-align: center;
             }
 
@@ -577,12 +554,10 @@
 
             .form-row {
                 grid-template-columns: 1fr;
-                gap: 14px;
             }
 
             .item-card {
                 flex-direction: column;
-                align-items: stretch;
             }
 
             .item-actions {
@@ -598,7 +573,6 @@
 
 <body>
 
-    <!-- ===== شاشة الدخول ===== -->
     <div id="loginScreen">
         <div class="login-box">
             <div class="icon">🔐</div>
@@ -610,9 +584,7 @@
         </div>
     </div>
 
-    <!-- ===== لوحة التحكم ===== -->
     <div id="dashboardScreen">
-
         <div class="dashboard-header">
             <div>
                 <h1>📋 لوحة إدارة المحتوى</h1>
@@ -626,7 +598,6 @@
             <button class="tab-btn" onclick="switchTab('list')">📚 عرض المحتوى</button>
         </div>
 
-        <!-- ===== تبويب الإضافة ===== -->
         <div class="tab-content active" id="tab-add">
             <div class="form-card">
                 <h2 id="formTitle">➕ إضافة محتوى جديد</h2>
@@ -640,19 +611,31 @@
                             <label>الصفحة <span class="req">*</span></label>
                             <select id="fieldPage" required>
                                 <option value="">اختر الصفحة...</option>
-                                <option value="home-library">🏠 المكتبة الرقمية (الرئيسية)</option>
-                                <option value="library">مكتبة المعرفة</option>
-                                <option value="faith">الإيمان</option>
-                                <option value="science">العلم</option>
-                                <option value="life">الحياة</option>
-                                <option value="pulpit">منبر الجمعة</option>
-                                <option value="qa">سؤال وجواب</option>
-                                <option value="stories">قصص ودروس وعبر</option>
-                                <option value="soul">حديث الروح</option>
-                                <option value="videos">مرئيات المنصة</option>
-                                <option value="audios">صوتيات</option>
-                                <option value="games">مسابقات وألغاز</option>
-                                <option value="entertainment">ترفيه هادف</option>
+                                <optgroup label="📰 الشريط الإخباري">
+                                    <option value="ticker">📰 الشريط الإخباري (كل الصفحات)</option>
+                                </optgroup>
+                                <optgroup label="🏠 الصفحة الرئيسية">
+                                    <option value="home-pillars">🏠 محاور المعرفة</option>
+                                    <option value="home-fatwa">🏠 بوابة الفتاوى</option>
+                                    <option value="home-videos">🏠 البرامج والمرئيات</option>
+                                    <option value="home-programs">🏠 برامج المنصة</option>
+                                    <option value="home-verify">🏠 تحقق</option>
+                                    <option value="home-library">🏠 المكتبة الرقمية</option>
+                                </optgroup>
+                                <optgroup label="📄 صفحات المنصة">
+                                    <option value="library">📖 مكتبة المعرفة</option>
+                                    <option value="faith">🕌 الإيمان</option>
+                                    <option value="science">🔬 العلم</option>
+                                    <option value="life">🌱 الحياة</option>
+                                    <option value="pulpit">🕌 منبر الجمعة</option>
+                                    <option value="qa">❓ سؤال وجواب</option>
+                                    <option value="stories">📜 قصص ودروس</option>
+                                    <option value="soul">💭 حديث الروح</option>
+                                    <option value="videos">🎥 مرئيات المنصة</option>
+                                    <option value="audios">🎧 صوتيات</option>
+                                    <option value="games">🎯 مسابقات وألغاز</option>
+                                    <option value="entertainment">😊 ترفيه هادف</option>
+                                </optgroup>
                             </select>
                         </div>
 
@@ -700,7 +683,6 @@
             </div>
         </div>
 
-        <!-- ===== تبويب العرض ===== -->
         <div class="tab-content" id="tab-list">
             <div class="form-card">
                 <h2>📚 المحتوى الحالي</h2>
@@ -709,19 +691,31 @@
                 <div class="filter-bar">
                     <select id="filterPage" onchange="renderList()">
                         <option value="">كل الصفحات</option>
-                        <option value="home-library">🏠 المكتبة الرقمية (الرئيسية)</option>
-                        <option value="library">مكتبة المعرفة</option>
-                        <option value="faith">الإيمان</option>
-                        <option value="science">العلم</option>
-                        <option value="life">الحياة</option>
-                        <option value="pulpit">منبر الجمعة</option>
-                        <option value="qa">سؤال وجواب</option>
-                        <option value="stories">قصص ودروس وعبر</option>
-                        <option value="soul">حديث الروح</option>
-                        <option value="videos">مرئيات المنصة</option>
-                        <option value="audios">صوتيات</option>
-                        <option value="games">مسابقات وألغاز</option>
-                        <option value="entertainment">ترفيه هادف</option>
+                        <optgroup label="📰 الشريط الإخباري">
+                            <option value="ticker">📰 الشريط الإخباري</option>
+                        </optgroup>
+                        <optgroup label="🏠 الصفحة الرئيسية">
+                            <option value="home-pillars">🏠 محاور المعرفة</option>
+                            <option value="home-fatwa">🏠 بوابة الفتاوى</option>
+                            <option value="home-videos">🏠 البرامج والمرئيات</option>
+                            <option value="home-programs">🏠 برامج المنصة</option>
+                            <option value="home-verify">🏠 تحقق</option>
+                            <option value="home-library">🏠 المكتبة الرقمية</option>
+                        </optgroup>
+                        <optgroup label="📄 صفحات المنصة">
+                            <option value="library">📖 مكتبة المعرفة</option>
+                            <option value="faith">🕌 الإيمان</option>
+                            <option value="science">🔬 العلم</option>
+                            <option value="life">🌱 الحياة</option>
+                            <option value="pulpit">🕌 منبر الجمعة</option>
+                            <option value="qa">❓ سؤال وجواب</option>
+                            <option value="stories">📜 قصص ودروس</option>
+                            <option value="soul">💭 حديث الروح</option>
+                            <option value="videos">🎥 مرئيات المنصة</option>
+                            <option value="audios">🎧 صوتيات</option>
+                            <option value="games">🎯 مسابقات وألغاز</option>
+                            <option value="entertainment">😊 ترفيه هادف</option>
+                        </optgroup>
                     </select>
                 </div>
 
@@ -733,13 +727,10 @@
                 </div>
             </div>
         </div>
-
     </div>
 
-    <!-- ===== Toast ===== -->
     <div class="toast" id="toast"></div>
 
-    <!-- ===== Firebase Admin JS ===== -->
     <script type="module" src="js/admin.js"></script>
 
 </body>

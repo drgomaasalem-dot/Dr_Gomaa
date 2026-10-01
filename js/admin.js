@@ -31,12 +31,14 @@ const db = getFirestore(app);
 // هيكل الأقسام
 // ============================================================
 const SECTIONS = {
-    // ===== الصفحة الرئيسية =====
+    ticker: [
+        { value: "items", label: "عناصر الشريط الإخباري", badgeText: "", badgeClass: "", buttonText: "" }
+    ],
     "home-pillars": [
         { value: "pillars", label: "محاور المعرفة", badgeText: "", badgeClass: "", buttonText: "تصفح القسم" }
     ],
     "home-fatwa": [
-        { value: "fatwa", label: "بوابة الفتاوى", badgeText: "", badgeClass: "", buttonText: "قراءة الإجابة كاملة" }
+        { value: "fatwa", label: "بوابة الفتاوى", badgeText: "", badgeClass: "", buttonText: "قراءة الإجابة" }
     ],
     "home-videos": [
         { value: "videos", label: "البرامج والمرئيات", badgeText: "", badgeClass: "", buttonText: "شاهد" }
@@ -50,8 +52,6 @@ const SECTIONS = {
     "home-library": [
         { value: "library", label: "المكتبة الرقمية", badgeText: "", badgeClass: "", buttonText: "تحميل مباشر" }
     ],
-
-    // ===== باقي الصفحات =====
     library: [
         { value: "books", label: "الكتب", badgeText: "📖 كتاب", badgeClass: "book", buttonText: "تحميل" },
         { value: "summaries", label: "ملخصات الكتب", badgeText: "📋 ملخص", badgeClass: "summary", buttonText: "اقرأ" },
@@ -137,7 +137,6 @@ let currentEditId = null;
 window.tryLogin = function () {
     const input = document.getElementById("passwordInput");
     const error = document.getElementById("loginError");
-
     if (input.value === PASSWORD) {
         sessionStorage.setItem("admin_logged", "true");
         showDashboard();
@@ -174,7 +173,6 @@ if (sessionStorage.getItem("admin_logged") === "true") {
 window.switchTab = function (tab) {
     document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
     document.querySelectorAll(".tab-content").forEach(c => c.classList.remove("active"));
-
     if (tab === "add") {
         document.querySelectorAll(".tab-btn")[0].classList.add("active");
         document.getElementById("tab-add").classList.add("active");
@@ -193,16 +191,13 @@ const sectionSelect = document.getElementById("fieldSection");
 pageSelect.addEventListener("change", () => {
     const page = pageSelect.value;
     sectionSelect.innerHTML = "";
-
     if (!page || !SECTIONS[page]) {
         sectionSelect.disabled = true;
         sectionSelect.innerHTML = '<option value="">اختر الصفحة أولاً...</option>';
         return;
     }
-
     sectionSelect.disabled = false;
     sectionSelect.innerHTML = '<option value="">اختر القسم...</option>';
-
     SECTIONS[page].forEach(sec => {
         const opt = document.createElement("option");
         opt.value = sec.value;
@@ -211,15 +206,12 @@ pageSelect.addEventListener("change", () => {
     });
 });
 
-// حفظ القيم تلقائي عند اختيار القسم
 sectionSelect.addEventListener("change", () => {
     const page = pageSelect.value;
     const section = sectionSelect.value;
     if (!page || !section) return;
-
     const secData = SECTIONS[page]?.find(s => s.value === section);
     if (!secData || currentEditId) return;
-
     document.getElementById("fieldButtonText").value = secData.buttonText || "اقرأ";
 });
 
@@ -230,7 +222,6 @@ const form = document.getElementById("contentForm");
 
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
-
     const submitBtn = document.getElementById("submitBtn");
     submitBtn.disabled = true;
     submitBtn.textContent = "⏳ جاري الحفظ...";
@@ -243,14 +234,11 @@ form.addEventListener("submit", async (e) => {
     const meta = document.getElementById("fieldMeta").value.trim();
     const buttonText = document.getElementById("fieldButtonText").value.trim() || "اقرأ";
 
-    // جلب badgeText و badgeClass من القسم
     const secData = SECTIONS[page]?.find(s => s.value === section) || {};
-    const badgeText = secData.badgeText || "📌 عنصر";
-    const badgeClass = secData.badgeClass || "article";
+    const badgeText = secData.badgeText || "";
+    const badgeClass = secData.badgeClass || "";
 
-    const data = {
-        page, section, title, description, url, meta, buttonText, badgeText, badgeClass
-    };
+    const data = { page, section, title, description, url, meta, buttonText, badgeText, badgeClass };
 
     try {
         if (currentEditId) {
@@ -263,9 +251,7 @@ form.addEventListener("submit", async (e) => {
             form.reset();
             document.getElementById("fieldButtonText").value = "اقرأ";
         }
-
         loadContent();
-
     } catch (err) {
         console.error("خطأ:", err);
         showToast("❌ حدث خطأ، حاول مرة أخرى", "error");
@@ -280,12 +266,7 @@ form.addEventListener("submit", async (e) => {
 // ============================================================
 async function loadContent() {
     const list = document.getElementById("contentList");
-    list.innerHTML = `
-    <div class="loading">
-      <div class="spinner"></div>
-      جاري التحميل...
-    </div>`;
-
+    list.innerHTML = `<div class="loading"><div class="spinner"></div>جاري التحميل...</div>`;
     try {
         const snap = await getDocs(collection(db, "content"));
         allContent = snap.docs.map(d => ({ id: d.id, ...d.data() }));
@@ -299,25 +280,15 @@ async function loadContent() {
 window.renderList = function () {
     const list = document.getElementById("contentList");
     const filterPage = document.getElementById("filterPage").value;
-
     let filtered = allContent;
-    if (filterPage) {
-        filtered = allContent.filter(item => item.page === filterPage);
-    }
-
+    if (filterPage) filtered = allContent.filter(item => item.page === filterPage);
     if (!filtered.length) {
-        list.innerHTML = `
-      <div class="empty-state">
-        <div class="icon">📭</div>
-        <p>${filterPage ? "لا يوجد محتوى في هذه الصفحة" : "لا يوجد محتوى بعد"}</p>
-      </div>`;
+        list.innerHTML = `<div class="empty-state"><div class="icon">📭</div><p>${filterPage ? "لا يوجد محتوى في هذه الصفحة" : "لا يوجد محتوى بعد"}</p></div>`;
         return;
     }
-
     list.innerHTML = filtered.map(item => {
         const pageName = getPageLabel(item.page);
         const sectionName = getSectionLabel(item.page, item.section);
-
         return `
       <div class="item-card">
         <div class="item-info">
@@ -344,12 +315,9 @@ window.renderList = function () {
 window.editItem = function (id) {
     const item = allContent.find(i => i.id === id);
     if (!item) return;
-
     currentEditId = id;
-
     document.getElementById("fieldPage").value = item.page || "";
     pageSelect.dispatchEvent(new Event("change"));
-
     setTimeout(() => {
         document.getElementById("fieldSection").value = item.section || "";
         document.getElementById("fieldTitle").value = item.title || "";
@@ -358,11 +326,9 @@ window.editItem = function (id) {
         document.getElementById("fieldMeta").value = item.meta || "";
         document.getElementById("fieldButtonText").value = item.buttonText || "اقرأ";
     }, 50);
-
     document.getElementById("formTitle").textContent = "✏️ تعديل محتوى";
     document.getElementById("submitBtn").textContent = "💾 حفظ التعديل";
     document.getElementById("cancelBtn").style.display = "block";
-
     switchTab("add");
     window.scrollTo({ top: 0, behavior: "smooth" });
 };
@@ -383,7 +349,6 @@ window.cancelEdit = function () {
 // ============================================================
 window.deleteItem = async function (id, title) {
     if (!confirm(`هل أنت متأكد من حذف:\n"${title}" ؟`)) return;
-
     try {
         await deleteDoc(doc(db, "content", id));
         showToast("✅ تم حذف المحتوى", "success");
@@ -399,19 +364,25 @@ window.deleteItem = async function (id, title) {
 // ============================================================
 function getPageLabel(page) {
     const map = {
-        "home-library": "المكتبة الرقمية (الرئيسية)",
-        library: "مكتبة المعرفة",
-        faith: "الإيمان",
-        science: "العلم",
-        life: "الحياة",
-        pulpit: "منبر الجمعة",
-        qa: "سؤال وجواب",
-        stories: "قصص ودروس وعبر",
-        soul: "حديث الروح",
-        videos: "مرئيات المنصة",
-        audios: "صوتيات",
-        games: "مسابقات وألغاز",
-        entertainment: "ترفيه هادف"
+        ticker: "📰 الشريط الإخباري",
+        "home-library": "🏠 المكتبة الرقمية",
+        "home-pillars": "🏠 محاور المعرفة",
+        "home-fatwa": "🏠 بوابة الفتاوى",
+        "home-videos": "🏠 المرئيات",
+        "home-programs": "🏠 برامج المنصة",
+        "home-verify": "🏠 تحقق",
+        library: "📖 مكتبة المعرفة",
+        faith: "🕌 الإيمان",
+        science: "🔬 العلم",
+        life: "🌱 الحياة",
+        pulpit: "🕌 منبر الجمعة",
+        qa: "❓ سؤال وجواب",
+        stories: "📜 قصص ودروس",
+        soul: "💭 حديث الروح",
+        videos: "🎥 مرئيات المنصة",
+        audios: "🎧 صوتيات",
+        games: "🎯 مسابقات وألغاز",
+        entertainment: "😊 ترفيه هادف"
     };
     return map[page] || page;
 }
