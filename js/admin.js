@@ -129,6 +129,13 @@ const SECTIONS = {
         { value: "lessons", label: "دروس", badgeText: "📖 درس", badgeClass: "article", buttonText: "استمع" },
         { value: "selected", label: "تسجيلات مختارة", badgeText: "⭐ مختار", badgeClass: "summary", buttonText: "استمع" }
     ],
+    // ===== قضايا معاصرة - جديد =====
+    issues: [
+        { value: "intellectual", label: "قضايا فكرية", badgeText: "🧠 فكرية", badgeClass: "book", buttonText: "اقرأ" },
+        { value: "social", label: "قضايا اجتماعية", badgeText: "👥 اجتماعية", badgeClass: "article", buttonText: "اقرأ" },
+        { value: "educational", label: "قضايا تربوية", badgeText: "📚 تربوية", badgeClass: "summary", buttonText: "اقرأ" },
+        { value: "youth", label: "قضايا الشباب", badgeText: "👨‍🎓 شبابية", badgeClass: "beneficial", buttonText: "اقرأ" }
+    ],
     games: [
         { value: "cultural", label: "مسابقات ثقافية", badgeText: "🏆 ثقافية", badgeClass: "book", buttonText: "شاهد" },
         { value: "religious", label: "أسئلة دينية", badgeText: "☪️ دينية", badgeClass: "article", buttonText: "شاهد" },
@@ -173,7 +180,6 @@ window.tryLogin = async function () {
 
     try {
         await signInWithEmailAndPassword(auth, email, password);
-        // النجاح — onAuthStateChanged هيتكفل بالباقي
     } catch (err) {
         console.error("Login error:", err);
         error.style.display = "block";
@@ -186,7 +192,6 @@ window.tryLogin = async function () {
     }
 };
 
-// Enter للدخول
 document.addEventListener("DOMContentLoaded", () => {
     const pwd = document.getElementById("passwordInput");
     if (pwd) {
@@ -212,16 +217,11 @@ function showDashboard() {
     loadContent();
 }
 
-// ============================================================
-// مراقبة حالة تسجيل الدخول
-// ============================================================
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        // مسجل دخول ✅
         console.log("✅ Logged in as:", user.email);
         showDashboard();
     } else {
-        // مش مسجل
         console.log("⛔ Not logged in");
         document.getElementById("loginScreen").style.display = "flex";
         document.getElementById("dashboardScreen").style.display = "none";
@@ -443,6 +443,7 @@ function getPageLabel(page) {
         soul: "💭 حديث الروح",
         videos: "🎥 مرئيات المنصة",
         audios: "🎧 صوتيات",
+        issues: "🔍 قضايا معاصرة",
         games: "🎯 مسابقات وألغاز",
         entertainment: "😊 ترفيه هادف"
     };
