@@ -33,27 +33,12 @@ function detectPageName() {
 }
 
 // ============================================================
-// أقسام الفيديو والصوت (هتستخدم iframe)
-// ============================================================
-const MEDIA_SECTIONS = [
-    "episodes", "shorts", "interviews", "live",
-    "home-videos",
-    "lectures", "lessons", "selected",
-    "videos"
-];
-
-function isMediaSection(sectionName) {
-    return MEDIA_SECTIONS.includes(sectionName);
-}
-
-// ============================================================
-// استخراج YouTube ID من أي صيغة
+// استخراج YouTube ID
 // ============================================================
 function extractYouTubeId(raw) {
     if (!raw) return null;
     raw = raw.trim();
     if (/^[a-zA-Z0-9_-]{11}$/.test(raw)) return raw;
-
     const patterns = [
         /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/,
         /[?&]v=([a-zA-Z0-9_-]{11})/
@@ -83,7 +68,6 @@ const HOME_PAGE_MAP = {
 
 // 1. library-card
 function tplLibrary(item) {
-    // خريطة الكلاسات حسب الصفحة
     const CARD_CLASS = {
         library: "library-card",
         science: "science-card",
@@ -192,7 +176,7 @@ function tplFatwa(item) {
   `;
 }
 
-// 5. video-card (مع iframe مضمّن)
+// 5. video-card (مع iframe)
 function tplVideo(item) {
     const videoId = extractYouTubeId(item.url);
     const iframe = videoId
@@ -220,7 +204,41 @@ function tplVideo(item) {
   `;
 }
 
-// 6. ticker-item (الشريط الإخباري)
+// 6. sheikh-card
+function tplSheikh(item) {
+    return `
+    <div class="sheikh-card">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7">
+          <path d="M12 2C9 6 6 9 6 13a6 6 0 0012 0c0-4-3-7-6-11z" />
+        </svg>
+      </span>
+      <h3>${item.title || ""}</h3>
+      <p>${item.description || ""}</p>
+      <div class="meta">
+        <span class="count">${item.meta || ""}</span>
+        <a class="link" href="${item.url || '#'}" target="_blank" rel="noopener">
+          ${item.buttonText || "اقرأ المزيد"}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 6l-6 6 6 6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+// 7. gallery-item (صور وذكريات)
+function tplGallery(item) {
+    return `
+    <div class="gallery-item">
+      <img src="${item.url || ''}" alt="${(item.title || '').replace(/"/g, '&quot;')}" loading="lazy" onerror="this.style.display='none'">
+      ${item.title ? `<div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(15,23,42,.85));color:#f0e2bd;padding:12px;font-size:.85rem;text-align:center">${item.title}</div>` : ''}
+    </div>
+  `;
+}
+
+// 8. ticker-item
 function tplTickerItem(item) {
     return `<span><time>${item.meta || ""}</time> ${item.title || ""}</span>`;
 }
@@ -229,6 +247,7 @@ function tplTickerItem(item) {
 // ربط اسم القسم بالقالب
 // ============================================================
 const SECTION_TEMPLATES = {
+    // library-card
     "books": tplLibrary, "summaries": tplLibrary, "articles": tplLibrary,
     "beneficial": tplLibrary, "quran": tplLibrary, "hadith": tplLibrary,
     "aqeedah": tplLibrary, "ethics": tplLibrary, "tazkiyah": tplLibrary,
@@ -242,24 +261,57 @@ const SECTION_TEMPLATES = {
     "heart": tplLibrary, "cultural": tplLibrary, "puzzle": tplLibrary,
     "jokes": tplLibrary, "situations": tplLibrary, "smile": tplLibrary,
 
+    // book-card
     "home-library": tplBook, "library": tplBook,
 
+    // pillar-card
     "pillars": tplPillar, "programs": tplPillar,
     "home-pillars": tplPillar, "home-programs": tplPillar,
 
+    // fatwa-item
     "fatwa": tplFatwa, "verify": tplFatwa,
     "home-fatwa": tplFatwa, "home-verify": tplFatwa,
 
+    // video-card
     "episodes": tplVideo, "shorts": tplVideo, "interviews": tplVideo, "live": tplVideo,
     "videos": tplVideo, "home-videos": tplVideo,
     "lectures": tplVideo, "lessons": tplVideo, "selected": tplVideo,
-    "audio": tplVideo, "video": tplVideo
+    "audio": tplVideo, "video": tplVideo,
+
+    // sheikh-card (صفحة الشيخ)
+    "sheikh-about": tplSheikh,
+    "sheikh-bio": tplSheikh,
+    "sheikh-message": tplSheikh,
+    "sheikh-books": tplSheikh,
+    "sheikh-lectures": tplSheikh,
+
+    // gallery
+    "gallery": tplGallery
 };
 
 // ============================================================
-// مسح الكروت الثابتة
+// خريطة أقسام صفحة الشيخ
 // ============================================================
+const SHEIKH_SECTION_MAP = {
+    "about": "sheikh-about",
+    "bio": "sheikh-bio",
+    "message": "sheikh-message",
+    "books": "sheikh-books",
+    "lectures": "sheikh-lectures",
+    "gallery": "gallery"
+};
+
+// ============================================================
+// مسح الكروت الثابتة (مع استثناء بعض الأقسام)
+// ============================================================
+const SKIP_SECTIONS = []; // لو عايز تستثني قسم معين من المسح
+
 function cleanContainer(sectionEl) {
+    const sectionId = sectionEl.getAttribute("id");
+
+    // لو القسم مستثنى، متمسحش
+    if (SKIP_SECTIONS.includes(sectionId)) return null;
+
     const container =
         sectionEl.querySelector('[class*="-grid"]') ||
         sectionEl.querySelector('.fatwa-list');
@@ -314,7 +366,6 @@ async function loadTicker() {
             where("section", "==", "items")
         );
         const snap = await getDocs(q);
-
         if (snap.empty) return;
 
         const items = snap.docs.map(d => d.data());
@@ -330,12 +381,13 @@ async function loadTicker() {
 // التشغيل التلقائي
 // ============================================================
 async function autoInit() {
-    // 1. الشريط الإخباري (في كل الصفحات)
+    // 1. الشريط الإخباري
     await loadTicker();
 
     // 2. محتوى الأقسام
     const pageName = detectPageName();
     const isHome = pageName === "index" || pageName === "";
+    const isSheikh = pageName === "sheikh";
 
     const sections = document.querySelectorAll("section[id]");
     for (const sectionEl of sections) {
@@ -346,11 +398,19 @@ async function autoInit() {
         let fbPage = pageName;
         let fbSection = sectionId;
 
+        // صفحة الشيخ — تحويل id
+        if (isSheikh && SHEIKH_SECTION_MAP[sectionId]) {
+            fbSection = SHEIKH_SECTION_MAP[sectionId];
+        }
+
+        // الصفحة الرئيسية
         if (isHome && HOME_PAGE_MAP[sectionId]) {
             fbPage = HOME_PAGE_MAP[sectionId];
         }
 
-        let tpl = SECTION_TEMPLATES[sectionId] || tplLibrary;
+        let tpl = SECTION_TEMPLATES[fbSection] ||
+            SECTION_TEMPLATES[sectionId] ||
+            tplLibrary;
         await loadSection(fbPage, fbSection, container, tpl);
     }
 }

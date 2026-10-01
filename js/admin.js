@@ -52,6 +52,14 @@ const SECTIONS = {
     "home-library": [
         { value: "library", label: "المكتبة الرقمية", badgeText: "", badgeClass: "", buttonText: "تحميل مباشر" }
     ],
+    sheikh: [
+        { value: "sheikh-about", label: "نبذة عن الشيخ", badgeText: "📖 نبذة", badgeClass: "book", buttonText: "اقرأ المزيد" },
+        { value: "sheikh-bio", label: "السيرة الذاتية", badgeText: "📋 سيرة", badgeClass: "summary", buttonText: "اقرأ المزيد" },
+        { value: "sheikh-message", label: "رسالتي ورؤيتي", badgeText: "🎯 رسالة", badgeClass: "article", buttonText: "اقرأ المزيد" },
+        { value: "sheikh-books", label: "مؤلفاتي وأبحاثي", badgeText: "📚 مؤلفات", badgeClass: "book", buttonText: "تحميل الكتاب" },
+        { value: "sheikh-lectures", label: "خطبي ودروسي", badgeText: "🎙️ خطبة", badgeClass: "summary", buttonText: "اقرأ" },
+        { value: "gallery", label: "صور وذكريات", badgeText: "🖼️ صورة", badgeClass: "article", buttonText: "" }
+    ],
     library: [
         { value: "books", label: "الكتب", badgeText: "📖 كتاب", badgeClass: "book", buttonText: "تحميل" },
         { value: "summaries", label: "ملخصات الكتب", badgeText: "📋 ملخص", badgeClass: "summary", buttonText: "اقرأ" },
@@ -371,6 +379,7 @@ function getPageLabel(page) {
         "home-videos": "🏠 المرئيات",
         "home-programs": "🏠 برامج المنصة",
         "home-verify": "🏠 تحقق",
+        sheikh: "👤 الموقع الرسمي للشيخ",
         library: "📖 مكتبة المعرفة",
         faith: "🕌 الإيمان",
         science: "🔬 العلم",
